@@ -5,20 +5,39 @@ using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
+    public GameObject[] SItems = new GameObject[2];
+
     [SerializeField] GameObject Inv;
     [SerializeField] bool IsActive;
-    public  GameObject[] SItems= new GameObject[2];
+
+    public static int LastItemID=-1;
+    public static string ActiveItem = "Defoult";
+
+
+
     // Start is called before the first frame update
     void Start()
     {
+        LastItemID = PlayerPrefs.GetInt("LastItemID");
         Inv.SetActive(false);
         IsActive = false;
         
-        for (int i = 0; i < SItems.GetLength(0); i++)
+        if (LastItemID != -1)
+        {
+            for (int i = 0; i <= LastItemID; i++)
+            {
+                SItems[i].SetActive(true);
+            }
+
+        }
+
+
+        for (int i = LastItemID+1; i < SItems.GetLength(0); i++)
         {
             SItems[i].SetActive(false);
         }
     }
+
 
     // Update is called once per frame
     void Update()
@@ -36,6 +55,18 @@ public class Inventory : MonoBehaviour
 
     }
 
+   
+    
+    
+    public void SetSave()
+    {
+        PlayerPrefs.SetInt("LastItemID", LastItemID);
+    }
+
+    public void RemSave()
+    {
+        PlayerPrefs.SetInt("LastItemID", -1);
+    }
 
 
 }

@@ -22,13 +22,14 @@ public class Movement : MonoBehaviour
     public float normalSpeed = 12.0f;
     public float fastSpeed = 35.0f;
     public float slowSpeed = 7.0f;
+    [SerializeField] GameObject inv;
 
     void Update()
     {
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
 
-        if (Input.GetMouseButtonDown(0) && fireTimer <= 0f)
+        if (Input.GetMouseButtonDown(0) && fireTimer <= 0f & !inv.activeSelf)
         {
             Shoot();
             fireTimer = fireRate;
