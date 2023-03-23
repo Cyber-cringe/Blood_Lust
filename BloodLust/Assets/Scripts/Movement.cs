@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    [SerializeField] private float speed = 5f;
+   // [SerializeField] private float speed = 5f;
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform firePoint;
     [Range(0.1f, 2f)]
@@ -22,13 +22,14 @@ public class Movement : MonoBehaviour
     public float normalSpeed = 12.0f;
     public float fastSpeed = 35.0f;
     public float slowSpeed = 7.0f;
+    [SerializeField] GameObject inv;
 
     void Update()
     {
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
 
-        if (Input.GetMouseButtonDown(0) && fireTimer <= 0f)
+        if (Input.GetMouseButtonDown(0) && fireTimer <= 0f & !inv.activeSelf)
         {
             Shoot();
             fireTimer = fireRate;
@@ -45,7 +46,7 @@ public class Movement : MonoBehaviour
         {
             runSpeed = normalSpeed;
         }
-        Debug.Log(runSpeed);
+    
 
     }
 

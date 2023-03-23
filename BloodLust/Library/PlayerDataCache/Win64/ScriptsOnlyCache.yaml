@@ -4,9 +4,10 @@ ScriptsOnlyBuild:
     - Bullet
     - CameraController
     - Enemies
+    - Inventory
+    - ItemInteraction
     - MainCharacter
     - Movement
-    - TEXT
     - mouse
     Unity.2D.Animation.Editor.dll:
     - UnityEditor.U2D.Animation.BoneGizmo
@@ -30,7 +31,6 @@ ScriptsOnlyBuild:
     - UnityEngine.EventSystems.EventSystem
     - UnityEngine.EventSystems.EventTrigger
     - UnityEngine.EventSystems.StandaloneInputModule
-    - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
@@ -60,35 +60,35 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1518}
+      Script: {instanceID: 1454}
     - Class: 114
       Script: {instanceID: 1586}
     - Class: 114
-      Script: {instanceID: 2240}
+      Script: {instanceID: 2180}
     - Class: 114
-      Script: {instanceID: 2666}
+      Script: {instanceID: 2242}
     - Class: 114
-      Script: {instanceID: 2836}
+      Script: {instanceID: 2404}
     - Class: 114
-      Script: {instanceID: 3072}
+      Script: {instanceID: 2670}
     - Class: 114
-      Script: {instanceID: 3100}
+      Script: {instanceID: 2840}
     - Class: 114
-      Script: {instanceID: 3316}
+      Script: {instanceID: 3076}
     - Class: 114
-      Script: {instanceID: 3394}
+      Script: {instanceID: 3104}
     - Class: 114
-      Script: {instanceID: 3440}
+      Script: {instanceID: 3320}
     - Class: 114
-      Script: {instanceID: 4204}
+      Script: {instanceID: 3398}
     - Class: 114
-      Script: {instanceID: 4224}
+      Script: {instanceID: 4208}
     - Class: 114
-      Script: {instanceID: 5568}
+      Script: {instanceID: 4228}
     - Class: 114
-      Script: {instanceID: 5810}
+      Script: {instanceID: 5572}
     - Class: 114
-      Script: {instanceID: 22290}
+      Script: {instanceID: 5816}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -110,16 +110,16 @@ ScriptsOnlyBuild:
   scriptHashData:
   - hash:
       serializedVersion: 2
-      Hash: 5ab533713adae59372fb3e10a585c186
-    assemblyName: Unity.Timeline.dll
-    namespaceName: UnityEngine.Timeline
-    className: AnimationPlayableAsset
-  - hash:
-      serializedVersion: 2
       Hash: a6e561615949734e9f12f9b61661f43e
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: Image
+  - hash:
+      serializedVersion: 2
+      Hash: 5ab533713adae59372fb3e10a585c186
+    assemblyName: Unity.Timeline.dll
+    namespaceName: UnityEngine.Timeline
+    className: AnimationPlayableAsset
   - hash:
       serializedVersion: 2
       Hash: 77aaaaa51f7a8d8ff333a879741e47d2
@@ -206,6 +206,12 @@ ScriptsOnlyBuild:
     className: SpriteSkinUpdateHelper
   - hash:
       serializedVersion: 2
+      Hash: 05ac495e2868682362f66d70d157a36b
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ItemInteraction
+  - hash:
+      serializedVersion: 2
       Hash: 800c50acba124432abb4cf0d47202e06
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -228,6 +234,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.2D.PixelPerfect.dll
     namespaceName: UnityEngine.U2D
     className: CinemachinePixelPerfect
+  - hash:
+      serializedVersion: 2
+      Hash: 5f0db5c18a4e74ae045458a85f7e9280
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Inventory
   - hash:
       serializedVersion: 2
       Hash: c1d728126ff1918728036c59106d32b2
@@ -626,7 +638,7 @@ ScriptsOnlyBuild:
     className: BufferManager
   - hash:
       serializedVersion: 2
-      Hash: 06e4e674c58276afc1b00cf1d15743e2
+      Hash: dc7dcee739ab4e2ef54d0b388030d449
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Bullet
@@ -662,17 +674,11 @@ ScriptsOnlyBuild:
     className: FabrikSolver2D
   - hash:
       serializedVersion: 2
-      Hash: 7d41d4bd2a5ea0693685bebc382b7f06
+      Hash: d2b8408e3e9d3bff49121801a3199f05
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Movement
-  - hash:
-      serializedVersion: 2
-      Hash: 13860269beb5bf645fc388607e3393cf
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: TEXT
   platform: 19
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: C:/Users/Alexander/Desktop/Blood Lust.exe
+  playerPath: D:/UP/Blood Lust.exe
