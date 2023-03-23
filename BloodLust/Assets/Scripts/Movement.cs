@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-   // [SerializeField] private float speed = 5f;
+    [SerializeField] private float speed = 5f;
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform firePoint;
     [Range(0.1f, 2f)]
@@ -14,7 +14,7 @@ public class Movement : MonoBehaviour
 
     public float horizontal;
     public float vertical;
-    private float fireTimer;
+    public static float fireTimer;
     public string SprintInput = "Sprint";
     float moveLimiter = 0.7f;
 
@@ -22,17 +22,20 @@ public class Movement : MonoBehaviour
     public float normalSpeed = 12.0f;
     public float fastSpeed = 35.0f;
     public float slowSpeed = 7.0f;
-    [SerializeField] GameObject inv;
+    public static int reload = 0;
 
     void Update()
     {
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
 
-        if (Input.GetMouseButtonDown(0) && fireTimer <= 0f & !inv.activeSelf)
+        if (Input.GetMouseButtonDown(0) && fireTimer <= 0f && (Pistol.number_of_bullets > 0))
         {
             Shoot();
             fireTimer = fireRate;
+            reload++;
+            Pistol.number_of_bullets--;
+            Debug.Log(reload);
         }
         else
         {
@@ -42,11 +45,11 @@ public class Movement : MonoBehaviour
         {
             runSpeed = fastSpeed;
         }
-        else 
+        else
         {
             runSpeed = normalSpeed;
         }
-    
+        //Debug.Log(runSpeed);
 
     }
 
@@ -67,5 +70,16 @@ public class Movement : MonoBehaviour
     private void Shoot()
     {
         Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+    }
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+
+        if (other.gameObject.CompareTag("Habar"))
+        {
+            Destroy(other.gameObject);
+            Pistol.number_of_bullets += 16;
+
+        }
+
     }
 }
