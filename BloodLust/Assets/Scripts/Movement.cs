@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    [SerializeField] private float speed = 5f;
+   // [SerializeField] private float speed = 5f;
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform firePoint;
     [Range(0.1f, 2f)]
@@ -45,7 +45,7 @@ public class Movement : MonoBehaviour
         {
             runSpeed = normalSpeed;
         }
-        Debug.Log(runSpeed);
+    
 
     }
 
