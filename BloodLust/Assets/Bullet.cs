@@ -15,13 +15,13 @@ public class Bullet : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Wall"))
         {
-           
-           {
-              Destroy(gameObject);
-           }
+
+            {
+                Destroy(gameObject);
+            }
         }
     }
-   
+
     private Rigidbody2D rb;
 
     private void Start()
@@ -32,7 +32,15 @@ public class Bullet : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        // if (mouse.h)
+        // {
+
+        //  rb.velocity = -transform.up * speed;
+
+
+        //}
+        //else
         rb.velocity = transform.up * speed;
     }
-   
+
 }
