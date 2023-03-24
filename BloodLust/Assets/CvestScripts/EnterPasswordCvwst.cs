@@ -21,5 +21,7 @@ public class EnterPasswordCvwst : MonoBehaviour
     public void ButtonX_Click()
     {
         MainWindow.SetActive(false);
+        Movement.CanShoot = true;
+        Movement.CanMove = true;
     }
 }

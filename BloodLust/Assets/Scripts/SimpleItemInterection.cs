@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SimpleItemInterection : ItemInteraction
 {
-    [SerializeField] GameObject GotItem_GetCvest;
+    [SerializeField] GameObject GotItem;
     [SerializeField] int ItemID;
     // Start is called before the first frame update
     void Start()
@@ -20,7 +20,7 @@ public class SimpleItemInterection : ItemInteraction
         {
             if (Input.GetKeyUp(KeyCode.R) & Mathf.Abs(transform.position.x - player.position.x) <= 8 & Mathf.Abs(transform.position.y - player.position.y) <= 5)
             {
-                GotItem_GetCvest.SetActive(true);
+                GotItem.SetActive(true);
                 Inventory.LastItemID = Inventory.LastItemID < ItemID ? ItemID : Inventory.LastItemID;
             }
 

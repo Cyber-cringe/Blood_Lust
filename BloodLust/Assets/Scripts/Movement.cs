@@ -9,6 +9,8 @@ public class Movement : MonoBehaviour
     [SerializeField] private Transform firePoint;
     [Range(0.1f, 2f)]
     [SerializeField] private float fireRate = 0.5f;
+    public static bool CanMove;
+    public static bool CanShoot;
 
     public Rigidbody2D body;
 
@@ -24,12 +26,18 @@ public class Movement : MonoBehaviour
     public float slowSpeed = 7.0f;
     public static int reload = 0;
 
+    void Start()
+    {
+        CanMove= true;
+        CanShoot= true;
+    }
+
     void Update()
     {
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
 
-        if (Input.GetMouseButtonDown(0) && fireTimer <= 0f && (Pistol.number_of_bullets > 0))
+        if (Input.GetMouseButtonDown(0) && CanShoot && fireTimer <= 0f && (Pistol.number_of_bullets > 0) )
         {
             Shoot();
             fireTimer = fireRate;
@@ -56,14 +64,16 @@ public class Movement : MonoBehaviour
     void FixedUpdate()
     {
 
-
-        if (horizontal != 0 && vertical != 0)
+        if (CanMove)
         {
-            horizontal *= moveLimiter;
-            vertical *= moveLimiter;
+            if (horizontal != 0 && vertical != 0)
+            {
+                horizontal *= moveLimiter;
+                vertical *= moveLimiter;
+            }
+            body.velocity = new Vector2(horizontal * runSpeed, vertical * runSpeed);
         }
-
-        body.velocity = new Vector2(horizontal * runSpeed, vertical * runSpeed);
+        
 
 
     }
