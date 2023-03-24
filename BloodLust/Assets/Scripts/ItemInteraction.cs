@@ -9,6 +9,7 @@ public class ItemInteraction : MonoBehaviour
     [SerializeField] Text TextCanvas;
     [SerializeField] string text = "взаимодействовать";
     protected Transform player;
+    protected bool CanTrack;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,12 +19,18 @@ public class ItemInteraction : MonoBehaviour
     protected void PrintInteraction()
     {
         if (GameObject.FindGameObjectWithTag("Player"))
-            {
+        {
             player = GameObject.FindGameObjectWithTag("Player").transform;
-            if (Mathf.Abs(transform.position.x - player.position.x) <= 8 & Mathf.Abs(transform.position.y - player.position.y) <= 5)
+            if (Mathf.Abs(transform.position.x - player.position.x) <= 4 & Mathf.Abs(transform.position.y - player.position.y) <= 3)
+            {
                 InfoCanvas.SetActive(true);
+                CanTrack = true;
+            }
             else
+            {
                 InfoCanvas.SetActive(false);
+                CanTrack= false;
+            }
         }
     }
 
