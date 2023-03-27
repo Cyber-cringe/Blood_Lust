@@ -3199,7 +3199,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a6946e2f76fe4542afcfa332c7fc92c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MainWindow: {fileID: 1196226300}
+  NewPassword: 0
 --- !u!1 &1222543381
 GameObject:
   m_ObjectHideFlags: 0
@@ -5728,13 +5728,17 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 140c8a817d292b64f8a7bcb5dbf92fca, type: 3}
+    - target: {fileID: 632170005969951342, guid: 091aed40751cb8c498fabb49146d6927, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2650734006411656082, guid: 091aed40751cb8c498fabb49146d6927, type: 3}
       propertyPath: m_Name
       value: Note
       objectReference: {fileID: 0}
     - target: {fileID: 2650734006411656092, guid: 091aed40751cb8c498fabb49146d6927, type: 3}
       propertyPath: m_SortingOrder
-      value: 100
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2650734006411656093, guid: 091aed40751cb8c498fabb49146d6927, type: 3}
       propertyPath: m_RootOrder
@@ -5797,6 +5801,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 225820494}
     - target: {fileID: 9045038003776758844, guid: 091aed40751cb8c498fabb49146d6927, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9045038003776758844, guid: 091aed40751cb8c498fabb49146d6927, type: 3}
       propertyPath: ExitButton
       value: 
       objectReference: {fileID: 878608312}
@@ -5820,6 +5828,22 @@ PrefabInstance:
     - target: {fileID: 8564367683226676255, guid: 14d0cc61faeed1348bee37045e2f57e4, type: 3}
       propertyPath: m_SortingOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8564367683498950545, guid: 14d0cc61faeed1348bee37045e2f57e4, type: 3}
+      propertyPath: m_Size.x
+      value: 1.0691607
+      objectReference: {fileID: 0}
+    - target: {fileID: 8564367683498950545, guid: 14d0cc61faeed1348bee37045e2f57e4, type: 3}
+      propertyPath: m_Size.y
+      value: 1.1844286
+      objectReference: {fileID: 0}
+    - target: {fileID: 8564367683498950545, guid: 14d0cc61faeed1348bee37045e2f57e4, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.03458035
+      objectReference: {fileID: 0}
+    - target: {fileID: 8564367683498950545, guid: 14d0cc61faeed1348bee37045e2f57e4, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.011526883
       objectReference: {fileID: 0}
     - target: {fileID: 8564367683498950545, guid: 14d0cc61faeed1348bee37045e2f57e4, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x

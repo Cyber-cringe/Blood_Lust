@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ItemInteraction : MonoBehaviour
 {
-    [SerializeField] GameObject InfoCanvas;
+    [SerializeField] protected GameObject InfoCanvas;
     [SerializeField] Text TextCanvas;
     [SerializeField] string text = "взаимодействовать";
     protected Transform player;

@@ -23,6 +23,7 @@ public class ItemForResearch :  ItemInteraction
         if (Input.GetKeyUp(KeyCode.R) & CanTrack)
         {
             NextStepOrQuest.SetActive(true);
+            InfoCanvas.SetActive(false);
             Movement.CanShoot = false;
             Movement.CanMove = false;
 
