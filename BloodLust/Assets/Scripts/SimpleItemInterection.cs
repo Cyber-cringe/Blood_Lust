@@ -16,17 +16,12 @@ public class SimpleItemInterection : ItemInteraction
     void Update()
     {
         PrintInteraction();
-        if (player != null)
-        {
-            if (Input.GetKeyUp(KeyCode.R) & Mathf.Abs(transform.position.x - player.position.x) <= 8 & Mathf.Abs(transform.position.y - player.position.y) <= 5)
+      
+            if (Input.GetKeyUp(KeyCode.R) & CanTrack)
             {
                 GotItem.SetActive(true);
                 Inventory.LastItemID = Inventory.LastItemID < ItemID ? ItemID : Inventory.LastItemID;
             }
 
-
-
-
-        }
     }
 }
