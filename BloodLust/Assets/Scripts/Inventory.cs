@@ -46,11 +46,13 @@ public class Inventory : MonoBehaviour
         {
             IsActive = true;
             Inv.SetActive(true);
+            Movement.CanShoot = false;
         } 
        else if (Input.GetKeyUp(KeyCode.E) & IsActive)
         {
             IsActive = false;
             Inv.SetActive(false);
+            Movement.CanShoot = true;
         }
 
     }

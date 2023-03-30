@@ -21,7 +21,7 @@ public class ItemInteraction : MonoBehaviour
         if (GameObject.FindGameObjectWithTag("Player"))
         {
             player = GameObject.FindGameObjectWithTag("Player").transform;
-            if (Mathf.Abs(transform.position.x - player.position.x) <= 4 & Mathf.Abs(transform.position.y - player.position.y) <= 3)
+            if (Mathf.Abs(transform.position.x - player.position.x) <= 5 & Mathf.Abs(transform.position.y - player.position.y) <= 4)
             {
                 InfoCanvas.SetActive(true);
                 CanTrack = true;
