@@ -26,7 +26,20 @@ public class MainCharacter : MonoBehaviour
             Maincharacter.GetComponent<Transform>().position = Maincharacter.GetComponent<Transform>().position + new Vector3(2, 0, 0);
             HP -= 10;
 
-            if (HP == 0)
+            if (HP <= 0)
+            {
+                Destroy(gameObject);
+            }
+
+
+        }
+        if (other.gameObject.CompareTag("Bullet"))
+        {
+            Destroy(other.gameObject);
+            //Maincharacter.GetComponent<Transform>().position = Maincharacter.GetComponent<Transform>().position + new Vector3(2, 0, 0);
+            HP -= 10;
+
+            if (HP <= 0)
             {
                 Destroy(gameObject);
             }
