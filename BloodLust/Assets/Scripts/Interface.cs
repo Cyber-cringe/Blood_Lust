@@ -12,11 +12,11 @@ public  class Interface : MonoBehaviour
     // Start is called before the first frame update
     IEnumerator ShowLPanel()
     {
-        ShowPanel = false;
         LowerPanel.SetActive(true);
         PanelText.text = MessageText;
         yield return new WaitForSeconds(3f);
         LowerPanel.SetActive(false);
+        ShowPanel = false;
     }
     
     void Start()

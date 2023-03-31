@@ -24,7 +24,7 @@ public class SpecialItemInterection : ItemForResearch
             Movement.CanShoot = false;
             Movement.CanMove = false;
         }
-        else if (Input.GetKeyUp(KeyCode.R) & CanTrack & GotItem.activeSelf)
+        else if (Input.GetKeyUp(KeyCode.R) & CanTrack & GotItem.activeSelf & !Interface.ShowPanel)
         {
             Interface.MessageText = "Здесь больше ничего нет.";
             Interface.ShowPanel = true;
