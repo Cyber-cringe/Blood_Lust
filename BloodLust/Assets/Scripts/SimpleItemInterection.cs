@@ -17,11 +17,17 @@ public class SimpleItemInterection : ItemInteraction
     {
         PrintInteraction();
       
-            if (Input.GetKeyUp(KeyCode.R) & CanTrack)
-            {
-                GotItem.SetActive(true);
-                Inventory.LastItemID = Inventory.LastItemID < ItemID ? ItemID : Inventory.LastItemID;
-            }
+        if (Input.GetKeyUp(KeyCode.R) & CanTrack & !GotItem.activeSelf)
+        {
+            GotItem.SetActive(true);
+            Inventory.LastItemID = Inventory.LastItemID < ItemID ? ItemID : Inventory.LastItemID;
+        }
+        
+        else if(Input.GetKeyUp(KeyCode.R) & CanTrack & GotItem.activeSelf)
+        {
+            Interface.MessageText = "Здесь больше ничего нет.";
+            Interface.ShowPanel = true;
+        }
 
     }
 }

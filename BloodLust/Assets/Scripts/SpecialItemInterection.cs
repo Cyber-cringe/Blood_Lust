@@ -17,12 +17,17 @@ public class SpecialItemInterection : ItemForResearch
     void Update()
     {
         PrintInteraction();
-            if (Input.GetKeyUp(KeyCode.R) & CanTrack)
-            {
-                NextStepOrQuest.SetActive(true);
-                InfoCanvas.SetActive(false);
-                Movement.CanShoot = false;
-                Movement.CanMove = false;
-            }
+        if (Input.GetKeyUp(KeyCode.R) & CanTrack & !GotItem.activeSelf)
+        {
+            NextStepOrQuest.SetActive(true);
+            InfoCanvas.SetActive(false);
+            Movement.CanShoot = false;
+            Movement.CanMove = false;
+        }
+        else if (Input.GetKeyUp(KeyCode.R) & CanTrack & GotItem.activeSelf & !Interface.ShowPanel)
+        {
+            Interface.MessageText = "Здесь больше ничего нет.";
+            Interface.ShowPanel = true;
+        }
     }
 }
