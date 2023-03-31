@@ -5,7 +5,9 @@ using UnityEngine.UI;
 
 public class MainCharacter : MonoBehaviour
 {
-    public int HP = 30;
+    [SerializeField] float MaxHP = 100;
+    float HP = 30;
+    [SerializeField] Image HPBar;
     [SerializeField] Text HPInfo;
     public static string ActiveItem="Default";
     [SerializeField] Text ActiveItemInfo;
@@ -16,7 +18,7 @@ public class MainCharacter : MonoBehaviour
         if (other.gameObject.CompareTag("Health"))
         {
             Destroy(other.gameObject);
-            HP += 20;
+            HP += HP<=80? 20: MaxHP - HP;
 
         }
 
@@ -26,8 +28,25 @@ public class MainCharacter : MonoBehaviour
             Maincharacter.GetComponent<Transform>().position = Maincharacter.GetComponent<Transform>().position + new Vector3(2, 0, 0);
             HP -= 10;
 
-            if (HP == 0)
+            if (HP <= 0)
             {
+                Destroy(gameObject);
+                HPInfo.text = ($"{HP}/{MaxHP}");
+                HPBar.fillAmount = HP / MaxHP;
+            }
+
+
+        }
+        if (other.gameObject.CompareTag("Bullet"))
+        {
+            Destroy(other.gameObject);
+            //Maincharacter.GetComponent<Transform>().position = Maincharacter.GetComponent<Transform>().position + new Vector3(2, 0, 0);
+            HP -= 10;
+
+            if (HP <= 0)
+            {
+                HPInfo.text = ($"{HP}/{MaxHP}");
+                HPBar.fillAmount = HP / MaxHP;
                 Destroy(gameObject);
             }
 
@@ -36,13 +55,14 @@ public class MainCharacter : MonoBehaviour
     }
     void Start()
     {
-
+        HP = MaxHP;
     }
 
     // Update is called once per frame
     void Update()
     {
-        HPInfo.text = HP.ToString();
+        HPInfo.text = ($"{HP}/{MaxHP}");
+        HPBar.fillAmount = HP/MaxHP;
         ActiveItemInfo.text=($"Активный предмет: {ActiveItem}").ToString();
     }
 }
