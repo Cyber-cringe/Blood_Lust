@@ -20,7 +20,8 @@ namespace Pathfinding
         public Transform target;
         public Transform firepoint;
         public GameObject bulletPrefab;
-       
+        public Transform RotationEnemies;
+
 
         public float fireTime = 0f;
 
@@ -60,7 +61,7 @@ namespace Pathfinding
                 Vector2 targetDirection = target.position - transform.position;
                 float angle = Mathf.Atan2(targetDirection.y, targetDirection.x) * Mathf.Rad2Deg - 90f;
                 Quaternion q = Quaternion.Euler(new Vector3(0, 0, angle));
-                transform.localRotation = Quaternion.Slerp(transform.localRotation, q, rotateSpeed);
+                RotationEnemies.rotation = Quaternion.Slerp(RotationEnemies.rotation, q, rotateSpeed);
                 //transform.rotation = target.rotation;
                 
                 //Shoot();
