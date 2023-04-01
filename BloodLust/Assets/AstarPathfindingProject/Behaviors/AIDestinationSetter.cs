@@ -16,8 +16,16 @@ namespace Pathfinding {
 	public class AIDestinationSetter : VersionedMonoBehaviour {
 		/// <summary>The object that the AI should move to</summary>
 		public Transform target;
+		public bool f = true;
+		public Vector3 c;
 		IAstarAI ai;
+		
 
+		public void Start()
+		{
+			 c = transform.position;
+
+        }
 		void OnEnable () {
 			ai = GetComponent<IAstarAI>();
 			// Update the destination right before searching for a path as well.
@@ -33,12 +41,12 @@ namespace Pathfinding {
 
 		/// <summary>Updates the AI's destination every frame</summary>
 		void Update () {
-			if ((target != null && ai != null) && (Vector2.Distance(target.position, transform.position) <= 30))
+			if ((target != null && ai != null) && (Vector2.Distance(target.position, transform.position) <= 40))
 			{
 				ai.destination = target.position;
 			}
             else
-                ai.destination = transform.position;
+                ai.destination = c;
         }
 	}
 }

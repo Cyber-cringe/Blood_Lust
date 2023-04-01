@@ -25,6 +25,7 @@ public class Movement : MonoBehaviour
     public float fastSpeed = 35.0f;
     public float slowSpeed = 7.0f;
     public static int reload = 0;
+    public Transform ring;
 
     void Start()
     {
@@ -34,6 +35,7 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
+        ring.transform.position = transform.position;
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
 

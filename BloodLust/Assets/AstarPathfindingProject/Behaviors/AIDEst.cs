@@ -21,14 +21,18 @@ namespace Pathfinding
         public Transform firepoint;
         public GameObject bulletPrefab;
         public Transform RotationEnemies;
+        
 
 
         public float fireTime = 0f;
-
+        public Vector3 c;
         IAstarAI ai;
         public float rotateSpeed = 0.9f;
-        
 
+        public void Start()
+        {
+            c = transform.position;
+        }
         void OnEnable()
         {
             ai = GetComponent<IAstarAI>();
@@ -48,27 +52,23 @@ namespace Pathfinding
         void Update()
         {
             
-            if ((target != null) && (Vector2.Distance(target.position, transform.position) <= 30))
+            if ((target != null) && (Vector2.Distance(target.position, transform.position) <= 50))
             {
                 Shoot();
                 if ((Vector2.Distance(target.position, transform.position) >= 10))
                 {
                     ai.destination = target.position;
-                  // Shoot();
+                  
                 }
                 else
-                ai.destination = transform.position;
+                ai.destination = c;
                 Vector2 targetDirection = target.position - transform.position;
                 float angle = Mathf.Atan2(targetDirection.y, targetDirection.x) * Mathf.Rad2Deg - 90f;
                 Quaternion q = Quaternion.Euler(new Vector3(0, 0, angle));
                 RotationEnemies.rotation = Quaternion.Slerp(RotationEnemies.rotation, q, rotateSpeed);
-                //transform.rotation = target.rotation;
-                
-                //Shoot();
             }
             else
-                ai.destination = transform.position;
-                //transform.position
+                ai.destination = c;
         }
      public void Shoot()
         {

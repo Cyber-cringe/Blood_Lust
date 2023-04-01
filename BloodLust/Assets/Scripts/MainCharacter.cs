@@ -6,13 +6,17 @@ using UnityEngine.UI;
 public class MainCharacter : MonoBehaviour
 {
     public static MainCharacter instance;
+    public GameObject bulletprefab;
+    public GameObject ring;
     public int HP = 30;
     [SerializeField] Text HPInfo;
     public static string ActiveItem="Default";
     [SerializeField] Text ActiveItemInfo;
     public GameObject Maincharacter;
     public Rigidbody2D rb;
-    
+    Collider2D IO, PC;
+
+
 
     private void Awake()
     {
@@ -22,6 +26,8 @@ public class MainCharacter : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        IO = bulletprefab.GetComponent<Collider2D>();
+        PC = ring.GetComponent<Collider2D>();
     }
     private void OnCollisionEnter2D(Collision2D other)
     {
@@ -71,11 +77,11 @@ public class MainCharacter : MonoBehaviour
         }
         yield return 0;
     }
-    
-
     // Update is called once per frame
+
     void Update()
     {
+        Physics2D.IgnoreCollision(IO,PC, true);
         HPInfo.text = HP.ToString();
         ActiveItemInfo.text=($"Активный предмет: {ActiveItem}").ToString();
     }

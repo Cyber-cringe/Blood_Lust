@@ -11,6 +11,7 @@ public class Enemies : MonoBehaviour
     public int Enemies_HP = 30;
     public float KnockbackPower = 1000;
     public float KnockbackDuration = 1;
+    
 
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -29,6 +30,10 @@ public class Enemies : MonoBehaviour
                 
                 Destroy(gameObject);
             }
+        }
+        if (other.gameObject.CompareTag("ZASHITA"))
+        {
+            StartCoroutine(ringscript.instance.Knockback2(1f, 0.00001f, this.transform));
         }
     }
 }
