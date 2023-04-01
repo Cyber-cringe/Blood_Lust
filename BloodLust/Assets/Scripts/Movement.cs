@@ -43,7 +43,7 @@ public class Movement : MonoBehaviour
             fireTimer = fireRate;
             reload++;
             Pistol.number_of_bullets--;
-            Debug.Log(reload);
+            //Debug.Log(reload);
         }
         else
         {
