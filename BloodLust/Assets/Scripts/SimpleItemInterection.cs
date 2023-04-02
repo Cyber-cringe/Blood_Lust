@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class SimpleItemInterection : ItemInteraction
 {
+    [SerializeField] string TextForInfoPanel;
     [SerializeField] GameObject GotItem;
-    [SerializeField] int ItemID;
+    //[SerializeField] int ItemID;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,13 +18,20 @@ public class SimpleItemInterection : ItemInteraction
     {
         PrintInteraction();
       
-        if (Input.GetKeyUp(KeyCode.R) & CanTrack & !GotItem.activeSelf)
+        if (Input.GetKeyUp(KeyCode.R) && CanTrack && !GotItem.activeSelf && (MainCharacter.ActiveItem == ItemForUnlock || ItemForUnlock == "Default"))
         {
             GotItem.SetActive(true);
-            Inventory.LastItemID = Inventory.LastItemID < ItemID ? ItemID : Inventory.LastItemID;
+            Interface.MessageText = TextForInfoPanel;
+            Interface.ShowPanel = true;
+            //Inventory.LastItemID = Inventory.LastItemID < ItemID ? ItemID : Inventory.LastItemID;
         }
-        
-        else if(Input.GetKeyUp(KeyCode.R) & CanTrack & GotItem.activeSelf)
+
+        else if (Input.GetKeyUp(KeyCode.R) && CanTrack && !GotItem.activeSelf && MainCharacter.ActiveItem != ItemForUnlock && ItemForUnlock != "Default")
+        {
+            Interface.MessageText = ErrorText;
+            Interface.ShowPanel = true;
+        }
+        else if (Input.GetKeyUp(KeyCode.R) && CanTrack && GotItem.activeSelf && !Interface.ShowPanel)
         {
             Interface.MessageText = "Здесь больше ничего нет.";
             Interface.ShowPanel = true;

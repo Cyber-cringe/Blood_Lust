@@ -7,6 +7,8 @@ public class ItemInteraction : MonoBehaviour
 {
     [SerializeField] protected GameObject InfoCanvas;
     [SerializeField] Text TextCanvas;
+    [SerializeField] protected string ItemForUnlock;
+    [SerializeField] protected string ErrorText = "Ошибка.";
     [SerializeField] string text = "взаимодействовать";
     protected Transform player;
     protected bool CanTrack;

@@ -265,6 +265,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2479501696437369878}
   - component: {fileID: 2479501696437369879}
+  - component: {fileID: 4186534987039043252}
   m_Layer: 0
   m_Name: SimpleItem
   m_TagString: Untagged
@@ -339,6 +340,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4186534987039043252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2479501696437369881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e50b0803974f354ba5e3b0028dbcc92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InfoCanvas: {fileID: 2479501696423511494}
+  TextCanvas: {fileID: 2479501695499831597}
+  ItemForUnlock: Default
+  ErrorText: "\u041E\u0448\u0438\u0431\u043A\u0430."
+  text: "\u0432\u0437\u0430\u0438\u043C\u043E\u0434\u0435\u0439\u0441\u0442\u0432\u043E\u0432\u0430\u0442\u044C"
+  GotItem: {fileID: 0}
 --- !u!1 &8007293904472600030
 GameObject:
   m_ObjectHideFlags: 0
@@ -349,7 +368,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2989326878081491502}
   - component: {fileID: 1037044430787878373}
-  - component: {fileID: 2250266609007668057}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -410,7 +428,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -422,20 +440,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2250266609007668057
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8007293904472600030}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e50b0803974f354ba5e3b0028dbcc92, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  InfoCanvas: {fileID: 2479501696423511494}
-  TextCanvas: {fileID: 2479501695499831597}
-  text: "\u0432\u0437\u0430\u0438\u043C\u043E\u0434\u0435\u0439\u0441\u0442\u0432\u043E\u0432\u0430\u0442\u044C"
-  GotItem: {fileID: 0}
-  ItemID: 0

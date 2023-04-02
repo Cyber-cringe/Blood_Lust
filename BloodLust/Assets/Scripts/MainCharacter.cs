@@ -18,7 +18,7 @@ public class MainCharacter : MonoBehaviour
         if (other.gameObject.CompareTag("Health"))
         {
             Destroy(other.gameObject);
-            HP += HP<=80? 20: MaxHP - HP;
+            HP += MaxHP - HP>=20? 20: MaxHP - HP;
 
         }
 
