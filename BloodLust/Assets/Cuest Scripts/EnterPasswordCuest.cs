@@ -85,9 +85,7 @@ public class EnterPasswordCuest : MonoBehaviour
         {
             AplyButton.GetComponent<Image>().color = new Color(1, 0, 0);
             StartCoroutine(ReturnColor());
-        }
-            
-            
+        }   
     }
 
 

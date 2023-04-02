@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
-    public GameObject[] SItems = new GameObject[2];
+    [SerializeField] GameObject[] Stuff = new GameObject[3];
+    [SerializeField] GameObject[] SItems = new GameObject[2];
 
     [SerializeField] GameObject Inv;
     [SerializeField] bool IsActive;
@@ -18,10 +19,20 @@ public class Inventory : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        LastItemID = PlayerPrefs.GetInt("LastItemID");
         Inv.SetActive(false);
         IsActive = false;
-        
+
+        for (int i = 0; i < Stuff.GetLength(0); i++)
+        {
+            Stuff[i].SetActive(false);
+        }
+
+        for (int i = 0; i < SItems.GetLength(0); i++)
+        {
+            SItems[i].SetActive(false);
+        }
+
+        /*LastItemID = PlayerPrefs.GetInt("LastItemID");
         if (LastItemID != -1)
         {
             for (int i = 0; i <= LastItemID; i++)
@@ -29,13 +40,9 @@ public class Inventory : MonoBehaviour
                 SItems[i].SetActive(true);
             }
 
-        }
+        }*/
 
 
-        for (int i = LastItemID+1; i < SItems.GetLength(0); i++)
-        {
-            SItems[i].SetActive(false);
-        }
     }
 
 
