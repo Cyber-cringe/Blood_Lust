@@ -23,12 +23,16 @@ namespace Pathfinding
         public Transform RotationEnemies;
 
 
-        public float fireTime = 0f;
 
+        public float fireTime = 0f;
+        public Vector3 c;
         IAstarAI ai;
         public float rotateSpeed = 0.9f;
-        
 
+        public void Start()
+        {
+            c = transform.position;
+        }
         void OnEnable()
         {
             ai = GetComponent<IAstarAI>();
@@ -47,37 +51,31 @@ namespace Pathfinding
         /// <summary>Updates the AI's destination every frame</summary>
         void Update()
         {
-            
-            if ((target != null) && (Vector2.Distance(target.position, transform.position) <= 30))
+
+            if ((target != null) && (Vector2.Distance(target.position, transform.position) <= 50))
             {
                 Shoot();
                 if ((Vector2.Distance(target.position, transform.position) >= 10))
                 {
                     ai.destination = target.position;
-                  // Shoot();
+
                 }
                 else
-                ai.destination = transform.position;
+                    ai.destination = transform.position;
                 Vector2 targetDirection = target.position - transform.position;
                 float angle = Mathf.Atan2(targetDirection.y, targetDirection.x) * Mathf.Rad2Deg - 90f;
                 Quaternion q = Quaternion.Euler(new Vector3(0, 0, angle));
                 RotationEnemies.rotation = Quaternion.Slerp(RotationEnemies.rotation, q, rotateSpeed);
-                //transform.rotation = target.rotation;
-                
-                //Shoot();
             }
             else
-                ai.destination = transform.position;
-                //transform.position
+                ai.destination = c;
         }
-     public void Shoot()
+        public void Shoot()
         {
             float fireRate = 0.5f;
-            Debug.Log(fireRate);
 
             if (fireTime <= 0)
             {
-                Debug.Log(fireTime);
                 Instantiate(bulletPrefab, firepoint.position, firepoint.rotation);
                 fireTime = fireRate;
             }
