@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 1311139616970331531}
   - component: {fileID: 1311139616970331530}
   - component: {fileID: 1311139616970331529}
-  - component: {fileID: 1311139616970331528}
-  m_Layer: 0
+  - component: {fileID: 2534018504666837138}
+  m_Layer: 8
   m_Name: Capsule
   m_TagString: Bullet
   m_Icon: {fileID: 0}
@@ -122,7 +122,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &1311139616970331528
+--- !u!114 &2534018504666837138
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -131,9 +131,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1311139616970331527}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21c330d9fd3fa3e4389febe9c22b831a, type: 3}
+  m_Script: {fileID: 11500000, guid: 5d32fbee453c4ac4390b18aec1eef93b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 1311139616970331527}
-  speed: 35
-  lifeTime: 10
+  speed: 50
+  lifeTime: 2

@@ -412,6 +412,7 @@ MonoBehaviour:
   NextStepOrQuest: {fileID: 0}
   ExitButton: {fileID: 0}
   GotItem: {fileID: 0}
+  Sprite: {fileID: 1622553670330013795}
 --- !u!1 &6625671574911761554
 GameObject:
   m_ObjectHideFlags: 0

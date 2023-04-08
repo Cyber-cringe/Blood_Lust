@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class MainCharacter : MonoBehaviour
 {
+    public static MainCharacter instance;
+    public GameObject bulletprefab;
+    public GameObject ring;
     [SerializeField] float MaxHP = 100;
     float HP = 30;
     [SerializeField] Image HPBar;
@@ -12,7 +15,21 @@ public class MainCharacter : MonoBehaviour
     public static string ActiveItem="Default";
     [SerializeField] Text ActiveItemInfo;
     public GameObject Maincharacter;
+    public Rigidbody2D rb;
+    Collider2D IO, PC;
     // Start is called before the first frame update
+    private void Awake()
+    {
+        instance = this;
+    }
+    void Start()
+    {
+        HP = MaxHP;
+        
+        rb = GetComponent<Rigidbody2D>();
+        IO = bulletprefab.GetComponent<Collider2D>();
+        PC = ring.GetComponent<Collider2D>();
+    }
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Health"))
@@ -52,17 +69,41 @@ public class MainCharacter : MonoBehaviour
 
 
         }
+        if (other.gameObject.CompareTag("PYLIAVRAGA"))
+        {
+            Destroy(other.gameObject);
+            //Maincharacter.GetComponent<Transform>().position = Maincharacter.GetComponent<Transform>().position + new Vector3(2, 0, 0);
+            HP -= 10;
+
+            if (HP <= 0)
+            {
+                Destroy(gameObject);
+            }
+
+
+        }
     }
-    void Start()
+    public IEnumerator Knockback(float KnockbackDuration, float KnockbackPower, Transform obj)
     {
-        HP = MaxHP;
+        float timer = 0;
+        while (KnockbackDuration > timer)
+        {
+            timer += Time.deltaTime;
+            Vector2 direction = (obj.transform.position - this.transform.position).normalized;
+            rb.AddForce(-direction * KnockbackPower);
+        }
+        yield return 0;
     }
+
 
     // Update is called once per frame
     void Update()
     {
-        HPInfo.text = ($"{HP}/{MaxHP}");
-        HPBar.fillAmount = HP/MaxHP;
-        ActiveItemInfo.text=($"Активный предмет: {ActiveItem}").ToString();
+        if(Maincharacter!=null)
+        {
+            HPInfo.text = ($"{HP}/{MaxHP}");
+            HPBar.fillAmount = HP / MaxHP;
+            ActiveItemInfo.text = ($"Активный предмет: {ActiveItem}").ToString();
+        }
     }
 }

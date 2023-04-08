@@ -16,6 +16,7 @@ public class SimpleItemInterection : ItemInteraction
     // Update is called once per frame
     void Update()
     {
+
         PrintInteraction();
       
         if (Input.GetKeyUp(KeyCode.R) && CanTrack && !GotItem.activeSelf && (MainCharacter.ActiveItem == ItemForUnlock || ItemForUnlock == "Default"))

@@ -5,6 +5,7 @@ using UnityEngine;
 public class SpecialItemInterection : ItemForResearch
 {
     [SerializeField] GameObject GotItem;
+    [SerializeField] GameObject Sprite;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +17,10 @@ public class SpecialItemInterection : ItemForResearch
     // Update is called once per frame
     void Update()
     {
+        if (player != null && transform.position.y > player.position.y)
+            Sprite.GetComponent<SpriteRenderer>().sortingOrder = 3;
+        else if (player != null && transform.position.y < player.position.y)
+            Sprite.GetComponent<SpriteRenderer>().sortingOrder = 110;
         PrintInteraction();
         if (Input.GetKeyUp(KeyCode.R) && CanTrack && !GotItem.activeSelf && (MainCharacter.ActiveItem == ItemForUnlock || ItemForUnlock == "Default"))
         {
@@ -23,6 +28,7 @@ public class SpecialItemInterection : ItemForResearch
             InfoCanvas.SetActive(false);
             Movement.CanShoot = false;
             Movement.CanMove = false;
+            WeaphonScript.totalWeaphons = 3;
         }
         else if (Input.GetKeyUp(KeyCode.R) && CanTrack && !GotItem.activeSelf && MainCharacter.ActiveItem != ItemForUnlock && ItemForUnlock != "Default")
         {

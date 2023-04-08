@@ -15,9 +15,9 @@ public class Pistol : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Movement.reload == 8)
+        if (Movement.Pistolreload == 8)
         {
-            Movement.reload = 0;
+            Movement.Pistolreload = 0;
             Movement.fireTimer = 4f;
         }
     }

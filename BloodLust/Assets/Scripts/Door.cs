@@ -22,7 +22,7 @@ public class Door : ItemInteraction
 
         if (axis == 'Y')
         {
-            if (player != null && transform.position.y >= player.position.y)
+            if (player != null && transform.position.y > player.position.y)
                 DoorSprite.GetComponent<SpriteRenderer>().sortingOrder = 3;
             else
                 DoorSprite.GetComponent<SpriteRenderer>().sortingOrder = 110;
@@ -32,7 +32,7 @@ public class Door : ItemInteraction
         if (Input.GetKeyUp(KeyCode.R) && CanTrack && (MainCharacter.ActiveItem == ItemForUnlock || IsOpen || ItemForUnlock=="Default"))
         {
             if(axis == 'X')
-            player.position = transform.position.x > player.position.x? new Vector3(transform.position.x + 1, transform.position.y) :new Vector3(transform.position.x - 1, transform.position.y);
+            player.position = transform.position.x > player.position.x? new Vector3(transform.position.x + 3, transform.position.y) :new Vector3(transform.position.x - 3, transform.position.y);
             
             if (axis == 'Y')
             {

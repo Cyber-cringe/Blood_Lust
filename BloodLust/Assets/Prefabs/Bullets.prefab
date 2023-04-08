@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1446589382693005062}
   - component: {fileID: 1446589382693005061}
   - component: {fileID: 1446589382693005060}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Bullets
   m_TagString: Habar
   m_Icon: {fileID: 0}
