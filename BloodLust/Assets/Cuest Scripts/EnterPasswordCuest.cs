@@ -14,7 +14,7 @@ public class EnterPasswordCuest : MonoBehaviour
     [SerializeField] GameObject GetItem;
     [SerializeField] int NewPassword=9999;
     [SerializeField] Button AplyButton;
-    [SerializeField] string LowerPanelMessage = "Найден прудмет: ключ";
+    [SerializeField] string LowerPanelMessage = "Найден предмет: ключ";
     [SerializeField] Text[] PS = new Text[4];
     [SerializeField] Button[] buttons = new Button[4];
     

@@ -9,7 +9,7 @@ public class Lamps : MonoBehaviour
     [SerializeField] GameObject GetItem;
     [SerializeField] Button AplyButton;
     [SerializeField] Button ResetButton;
-    [SerializeField] string LowerPanelMessage = "Найден прудмет: пистолет";
+    [SerializeField] string LowerPanelMessage = "Найден предмет: пистолет";
     [SerializeField] Button[] lamps = new Button[5];
     private bool[] IsActive = new bool[5];
 
