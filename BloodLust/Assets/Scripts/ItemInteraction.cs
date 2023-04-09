@@ -40,7 +40,7 @@ public class ItemInteraction : MonoBehaviour
 
     protected void ChangePlayerPos()
     {
-        if (Is3D)
+        if (Is3D && CanTrack)
         {
             if (player != null && transform.position.y > player.position.y)
                 Sprite.GetComponent<SpriteRenderer>().sortingOrder = 3;

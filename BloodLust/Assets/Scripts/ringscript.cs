@@ -18,6 +18,7 @@ public class ringscript : MonoBehaviour
 
     void Start()
     {
+        krest.gameObject.SetActive(false);
         ring.gameObject.SetActive(true);
         rb = GetComponent<Rigidbody2D>();
         

@@ -13,6 +13,7 @@ TagManager:
   - Habar2
   - PYLIAVRAGA
   - Knife
+  - Pumping
   layers:
   - Default
   - TransparentFX

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,6 +20,10 @@ public class MainCharacter : MonoBehaviour
     public Rigidbody2D rb;
     Collider2D IO, PC;
     public static float mana = 4;
+    [SerializeField] Image ManaBar;
+    [SerializeField] Text ManaInfo;
+    [SerializeField] GameObject Arrow;
+    [SerializeField] GameObject Cross;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -27,10 +32,11 @@ public class MainCharacter : MonoBehaviour
     void Start()
     {
         HP = MaxHP;
-        
+        Arrow.SetActive(false);
         rb = GetComponent<Rigidbody2D>();
         IO = bulletprefab.GetComponent<Collider2D>();
         PC = ring.GetComponent<Collider2D>();
+        StartCoroutine(Recovery());
     }
     private void OnCollisionEnter2D(Collision2D other)
     {
@@ -38,6 +44,13 @@ public class MainCharacter : MonoBehaviour
         {
             Destroy(other.gameObject);
             HP += MaxHP - HP>=20? 20: MaxHP - HP;
+
+        }
+
+        if (other.gameObject.CompareTag("Pumping"))
+        {
+            Destroy(other.gameObject);
+            MaxHP += 50;
 
         }
 
@@ -99,7 +112,12 @@ public class MainCharacter : MonoBehaviour
         yield return 0;
     }
 
-
+    IEnumerator Recovery()
+    {
+        HP += (Cross.activeSelf && MaxHP > HP) ? 1 : 0;
+        yield return new WaitForSeconds(0.5f);
+        StartCoroutine(Recovery());
+    }
     // Update is called once per frame
     void Update()
     {
@@ -107,7 +125,11 @@ public class MainCharacter : MonoBehaviour
         {
             HPInfo.text = ($"{HP}/{MaxHP}");
             HPBar.fillAmount = HP / MaxHP;
-            ActiveItemInfo.text = ($"Активный предмет: {ActiveItem}").ToString();
+
+            ManaInfo.text = ($"{Math.Round(mana, 1)}/4");
+            ManaBar.fillAmount = mana / 4;
+            if(mana>4) Arrow.SetActive(true);
+            else Arrow.SetActive(false);
         }
     }
 }

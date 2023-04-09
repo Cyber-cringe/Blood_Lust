@@ -176,14 +176,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 260c896e4d840c54895f7bc38d985bd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Sprite: {fileID: 0}
+  Is3D: 1
   InfoCanvas: {fileID: 129950728532692739}
   TextCanvas: {fileID: 129950727777981010}
-  text: "\u041E\u0442\u043A\u0440\u044B\u0442\u044C"
-  axis: 89
   ItemForUnlock: Default
   ErrorText: "\u041D\u0443\u0436\u0435\u043D \u043A\u043B\u044E\u0447."
+  text: "\u041E\u0442\u043A\u0440\u044B\u0442\u044C"
+  axis: 89
   DoorSprite: {fileID: 129950728612306491}
-  barrier: {fileID: 0}
 --- !u!1 &129950728532692739
 GameObject:
   m_ObjectHideFlags: 0
@@ -312,7 +313,7 @@ Transform:
   m_GameObject: {fileID: 129950728612306491}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.0292, z: 0}
-  m_LocalScale: {x: 0.35, y: 1.5, z: 0}
+  m_LocalScale: {x: 0.11, y: 0.3, z: 0}
   m_Children: []
   m_Father: {fileID: 129950727978553779}
   m_RootOrder: 0
@@ -357,7 +358,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0ea707c9de3e32e4ca0f9bcefa94b873, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -406,7 +407,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 6.4, y: 6.4}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

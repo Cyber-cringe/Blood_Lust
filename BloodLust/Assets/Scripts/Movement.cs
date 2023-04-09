@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Movement : MonoBehaviour
 {
@@ -38,6 +39,9 @@ public class Movement : MonoBehaviour
     public Transform ring;
     private float nextShot = 0.0f;
     public Quaternion qDelta;
+    [SerializeField] Text Bullets1Info;
+    [SerializeField] Text Bullets2Info;
+    [SerializeField] GameObject InventoryKnife;
 
     void Start()
     {
@@ -150,18 +154,21 @@ public class Movement : MonoBehaviour
         {
             Destroy(other.gameObject);
             Pistol.number_of_bullets += 16;
+            Bullets1Info.text = "x" + Pistol.number_of_bullets.ToString();
 
         }
         if (other.gameObject.CompareTag("Habar2"))
         {
             Destroy(other.gameObject);
             HandGun.number_of_bullets += 8;
+            Bullets2Info.text = "x" + HandGun.number_of_bullets.ToString();
 
         }
         if (other.gameObject.CompareTag("Knife"))
         {
             Destroy(other.gameObject);
             WeaphonScript.totalWeaphons = 2;
+            InventoryKnife.SetActive(true);
             //WeaphonScript.currentWeaphonIndex = 2;
 
         }
