@@ -26,7 +26,7 @@ public class BigWall : MonoBehaviour
             if (player.position.y > transform.position.y)
             {
                 barrier.SetActive(true);
-                barrier.GetComponent<BoxCollider2D>().enabled = true;
+                //barrier.GetComponent<BoxCollider2D>().enabled = true;
                 Wall.GetComponent<BoxCollider2D>().enabled = false;
                 Wall.GetComponent<SpriteRenderer>().sortingOrder = 109;
                 Wall.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 175f / 255f);

@@ -4,14 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Pyatnashki : MonoBehaviour
+public class Pyatnashki : Quests
 {
     [SerializeField] Button[] cells = new Button[16];
     [SerializeField] Text[] numbers = new Text[16];
-    [SerializeField] GameObject Quest;
-    [SerializeField] Button AplyButton;
-    [SerializeField] GameObject GetItem;
-    [SerializeField] string LowerPanelMessage = "Найден предмет: дробовик";
 
     private void SwapCells<T>(ref T a, ref T b)
     {
@@ -21,16 +17,6 @@ public class Pyatnashki : MonoBehaviour
         b = temp;
     }
 
-    void Update()
-    {
-        if (Input.GetKeyUp(KeyCode.Z) && Input.GetKeyUp(KeyCode.X) && Quest.activeSelf)
-        {
-            for (int i = 0; i < numbers.GetLength(0) - 1; i++)
-            {
-                numbers[i].text = (i+1).ToString();
-            }
-        }
-    }
 
     private bool CheckCell(int ind, int shift)
     {
@@ -51,17 +37,11 @@ public class Pyatnashki : MonoBehaviour
             }
         }
         catch (IndexOutOfRangeException) { return false; }
-        
+
         return false;
 
     }
 
-    IEnumerator ReturnColor(Button cell)
-    {
-        cell.GetComponent<Image>().color = new Color(1, 0, 0);
-        yield return new WaitForSeconds(0.5f);
-        cell.GetComponent<Image>().color = new Color(90 / 255f, 90 / 255f, 90 / 255f);
-    }
 
     public bool move(int ind, bool ChangeCokor = true)
     {
@@ -77,7 +57,7 @@ public class Pyatnashki : MonoBehaviour
 
     public void ApplyButton_Click()
     {
-        if (numbers[numbers.GetLength(0)-1].text != "")
+        if (numbers[numbers.GetLength(0) - 1].text != "")
         {
             StartCoroutine(ReturnColor(AplyButton));
             return;
@@ -122,26 +102,22 @@ public class Pyatnashki : MonoBehaviour
         cells[11].onClick.AddListener(() => { move(11); });
         cells[12].onClick.AddListener(() => { move(12); });
         cells[13].onClick.AddListener(() => { move(13); });
-        cells[14].onClick.AddListener(() => { move(14); });
+        cells[14].onClick.AddListener(() => { move(14); }); 
         AplyButton.onClick.AddListener(() => { ApplyButton_Click(); });
 
         int CellInd;
         int VoidCellInd = 15;
 
-        for (int i = 0; i < UnityEngine.Random.Range(50, 75); )
+        for (int i = 0; i < UnityEngine.Random.Range(50, 75);)
         {
             CellInd = UnityEngine.Random.Range(0, 15);
-            if (Mathf.Abs(VoidCellInd - CellInd) == 4 || Mathf.Abs(VoidCellInd - CellInd) == 1)
+            if ((Mathf.Abs(VoidCellInd - CellInd) == 4 || Mathf.Abs(VoidCellInd - CellInd) == 1) && numbers[CellInd].text != "" && move(CellInd, false))
             {
-                if(numbers[CellInd].text != "" && move(CellInd, false))
-                {
-                    VoidCellInd = CellInd;
-                    i++;    
-                }
+                VoidCellInd = CellInd;
+                i++;
             }
 
         }
 
     }
-
 }

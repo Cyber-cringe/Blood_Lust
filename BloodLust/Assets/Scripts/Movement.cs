@@ -48,6 +48,7 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
+   
         if (ring != null)
         {
             ring.transform.position = transform.position;

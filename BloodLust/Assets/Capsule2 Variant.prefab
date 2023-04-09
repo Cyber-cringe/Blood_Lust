@@ -149,6 +149,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2534018504666837138, guid: 4b865e159fe562a4fad728f9de32cbb9, type: 3}
+      propertyPath: lifeTime
+      value: 1.21
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1311139616970331530, guid: 4b865e159fe562a4fad728f9de32cbb9, type: 3}
     - {fileID: 1311139616970331528, guid: 4b865e159fe562a4fad728f9de32cbb9, type: 3}
@@ -179,18 +183,3 @@ CircleCollider2D:
   m_Offset: {x: 0.111358166, y: 2.4684086}
   serializedVersion: 2
   m_Radius: 2.540431
---- !u!114 &2280664985414995219
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6346071743531545403}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d32fbee453c4ac4390b18aec1eef93b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bullet: {fileID: 0}
-  speed: 39.99
-  lifeTime: 2

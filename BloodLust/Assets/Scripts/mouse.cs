@@ -41,9 +41,16 @@ public class mouse : MonoBehaviour
 
             }
             else
+            {
 
+                if (WeaphonScript.currentWeaphonIndex == 1)
+                {
+                    WeaphonScript.currentGun.transform.Find("Knife1").GetComponent<SpriteRenderer>().flipY = true;
+
+                }
                 Character2.GetComponent<SpriteRenderer>().flipX = true;
-            WeaphonScript.currentGun.GetComponent<SpriteRenderer>().flipY = true;
+                WeaphonScript.currentGun.GetComponent<SpriteRenderer>().flipY = true;
+            }
 
         }
         if ((a <= 90) || (a >= 270))
@@ -63,7 +70,11 @@ public class mouse : MonoBehaviour
             {
                 Character2.GetComponent<SpriteRenderer>().flipX = true;
                 WeaphonScript.currentGun.GetComponent<SpriteRenderer>().flipY = false;
-                WeaphonScript.currentGun.transform.Find("Knife1").GetComponent<SpriteRenderer>().flipY = true;
+                if (WeaphonScript.currentWeaphonIndex == 1)
+                {
+                    WeaphonScript.currentGun.transform.Find("Knife1").GetComponent<SpriteRenderer>().flipY = true;
+
+                }
             }
 
         }

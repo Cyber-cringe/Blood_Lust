@@ -22,7 +22,10 @@ public class Menu : MonoBehaviour
     {
         SceneManager.LoadScene(1);
     }
-
+    public void Button1()
+    {
+        SceneManager.LoadScene(0);
+    }
     public void ButtonAutorsInfo()
     {
         AutorsInfo.SetActive(true);

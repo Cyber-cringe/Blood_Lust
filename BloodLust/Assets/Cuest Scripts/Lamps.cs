@@ -3,13 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Lamps : MonoBehaviour
+public class Lamps : Quests
 {
-    [SerializeField] GameObject Quest;
-    [SerializeField] GameObject GetItem;
-    [SerializeField] Button AplyButton;
+
     [SerializeField] Button ResetButton;
-    [SerializeField] string LowerPanelMessage = "Найден предмет: пистолет";
     [SerializeField] Button[] lamps = new Button[5];
     private bool[] IsActive = new bool[5];
 
@@ -18,22 +15,17 @@ public class Lamps : MonoBehaviour
     void Start()
     {
         ResetButton_Click();
-        lamps[0].onClick.AddListener(() => { Lamp1_Click(); });
-        lamps[1].onClick.AddListener(() => { Lamp2_Click(); });
-        lamps[2].onClick.AddListener(() => { Lamp3_Click(); });
-        lamps[3].onClick.AddListener(() => { Lamp4_Click(); });
-        lamps[4].onClick.AddListener(() => { Lamp5_Click(); });
+        lamps[0].onClick.AddListener(() => { ChangeLampsState(1, 3, 4); });
+        lamps[1].onClick.AddListener(() => { ChangeLampsState(1, 4); });
+        lamps[2].onClick.AddListener(() => { ChangeLampsState(2); });
+        lamps[3].onClick.AddListener(() => { ChangeLampsState(3); });
+        lamps[4].onClick.AddListener(() => { ChangeLampsState(0, 1, 4); });
         AplyButton.onClick.AddListener(() => { ApplyButton_Click(); });
         ResetButton.onClick.AddListener(() => { ResetButton_Click(); });
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
-    private void ChangeState(params int[] ind)
+    private void ChangeLampsState(params int[] ind)
     {
         for (int i=0; i<ind.GetLength(0); i++)
         {
@@ -50,39 +42,6 @@ public class Lamps : MonoBehaviour
         }
     }
 
-
-    public void Lamp1_Click()
-    {
-        ChangeState(1, 3, 4);
-    }
-
-    public void Lamp2_Click()
-    {
-        ChangeState(1, 4);
-    }
-
-    public void Lamp3_Click()
-    {
-        ChangeState(2);
-    }
-
-    public void Lamp4_Click()
-    {
-        ChangeState(3);
-    }
-
-    public void Lamp5_Click()
-    {
-        ChangeState(0, 1, 4);
-    }
-
-
-    IEnumerator ReturnColor()
-    {
-        yield return new WaitForSeconds(0.5f);
-        AplyButton.GetComponent<Image>().color = new Color(90 / 255f, 90 / 255f, 90 / 255f);
-    }
-
     public void ApplyButton_Click()
     {
         if (IsActive[0] && IsActive[1] && IsActive[2] && IsActive[3] && IsActive[4])
@@ -96,11 +55,9 @@ public class Lamps : MonoBehaviour
         }
         else
         {
-            AplyButton.GetComponent<Image>().color = new Color(1, 0, 0);
-            StartCoroutine(ReturnColor());
+            StartCoroutine(ReturnColor(AplyButton));
         }
     }
-
 
     public void ResetButton_Click()
     {

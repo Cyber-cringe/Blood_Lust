@@ -11,7 +11,7 @@ public class Enemies : MonoBehaviour
     public int Enemies_HP = 30;
     public float KnockbackPower = 1000;
     public float KnockbackDuration = 1;
-    public static float mana = 4;
+  
     
 
 
@@ -29,8 +29,12 @@ public class Enemies : MonoBehaviour
 
             if (Enemies_HP == 0)
             {
-                mana += 2;
+                MainCharacter.mana += 2;
                 Destroy(gameObject);
+                Destroy(BossFire.Enemy);
+                //Destroy(BossFire.Enemy);
+                //Destroy(BossFire.Enemy2);
+                //Destroy(BossFire.Enemy3);
             }
         }
         if (other.gameObject.CompareTag("ZASHITA"))

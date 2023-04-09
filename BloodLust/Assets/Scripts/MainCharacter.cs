@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class MainCharacter : MonoBehaviour
 {
     public static MainCharacter instance;
@@ -17,6 +18,7 @@ public class MainCharacter : MonoBehaviour
     public GameObject Maincharacter;
     public Rigidbody2D rb;
     Collider2D IO, PC;
+    public static float mana = 4;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -47,9 +49,9 @@ public class MainCharacter : MonoBehaviour
 
             if (HP <= 0)
             {
-                Destroy(gameObject);
                 HPInfo.text = ($"{HP}/{MaxHP}");
                 HPBar.fillAmount = HP / MaxHP;
+                Destroy(gameObject);
             }
 
 
@@ -77,6 +79,8 @@ public class MainCharacter : MonoBehaviour
 
             if (HP <= 0)
             {
+                HPInfo.text = ($"{HP}/{MaxHP}");
+                HPBar.fillAmount = HP / MaxHP;
                 Destroy(gameObject);
             }
 

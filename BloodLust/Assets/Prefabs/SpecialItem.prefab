@@ -404,6 +404,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08801d5836895974aa078b29c7f418f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Sprite: {fileID: 1622553670330013795}
+  Is3D: 1
   InfoCanvas: {fileID: 6625671573929390203}
   TextCanvas: {fileID: 6625671574911761552}
   ItemForUnlock: Default
@@ -412,7 +414,6 @@ MonoBehaviour:
   NextStepOrQuest: {fileID: 0}
   ExitButton: {fileID: 0}
   GotItem: {fileID: 0}
-  Sprite: {fileID: 1622553670330013795}
 --- !u!1 &6625671574911761554
 GameObject:
   m_ObjectHideFlags: 0

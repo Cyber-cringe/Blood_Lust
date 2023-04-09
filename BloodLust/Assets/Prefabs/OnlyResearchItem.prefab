@@ -352,8 +352,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4706e79a9aed12a4db19d2a29ac41573, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Sprite: {fileID: 7619569738257738325}
   InfoCanvas: {fileID: 2650734006330131021}
   TextCanvas: {fileID: 2650734004934364838}
+  Is3D: 1
+  ItemForUnlock: 
+  ErrorText: "\u041E\u0448\u0438\u0431\u043A\u0430."
   text: "\u0432\u0437\u0430\u0438\u043C\u043E\u0434\u0435\u0439\u0441\u0442\u0432\u043E\u0432\u0430\u0442\u044C"
   NextStepOrQuest: {fileID: 0}
   ExitButton: {fileID: 0}

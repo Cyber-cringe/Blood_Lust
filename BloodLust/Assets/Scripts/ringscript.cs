@@ -48,11 +48,11 @@ public class ringscript : MonoBehaviour
     {
         if (krest != null && ring != null)
         {
-            if (Enemies.mana > 0 && (Input.GetMouseButton(1)))
+            if (MainCharacter.mana > 0 && (Input.GetMouseButton(1)))
             {
 
-                Enemies.mana -= Time.deltaTime;
-                if (Enemies.mana <= 0)
+                MainCharacter.mana -= Time.deltaTime;
+                if (MainCharacter.mana <= 0)
                 {
                     krest.gameObject.SetActive(false);
                     ring.gameObject.SetActive(false);
