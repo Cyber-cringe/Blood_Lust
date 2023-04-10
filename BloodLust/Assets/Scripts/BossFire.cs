@@ -37,6 +37,8 @@ public class BossFire : MonoBehaviour
     public static GameObject Enemy;
     public static GameObject Enemy2;
     public static GameObject Enemy3;
+    [SerializeField] private AudioSource BossSound;
+
 
 
     float radius, moveSpeed;
@@ -55,8 +57,13 @@ public class BossFire : MonoBehaviour
     void Update()
     {
         //Debug.Log((Vector2.Distance(Boss.GetComponent<Transform>().position, MainCharacter.GetComponent<Transform>().position)));
-        if ((Boss != null && MainCharacter!= null) && (Vector2.Distance(Boss.GetComponent<Transform>().position, MainCharacter.GetComponent<Transform>().position) <= 30))
+
+
+
+        if ((Boss != null && MainCharacter != null) && (Vector2.Distance(Boss.GetComponent<Transform>().position, MainCharacter.GetComponent<Transform>().position) <= 30))
         {
+
+
             if (k == true && Enemy == null && Enemy2 == null && Enemy3 == null)
             {
                 ring.gameObject.SetActive(false);
@@ -86,6 +93,10 @@ public class BossFire : MonoBehaviour
                     SpawnEnemies();
                 }
             }
+        }
+        else
+        {
+             BossSound.Play();
         }
     }
     void SpawnProjectiles(int numberofProjectiles)

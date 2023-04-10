@@ -11,6 +11,8 @@ public class ringscript : MonoBehaviour
     public GameObject krest;
     private float curr_time;
     public bool aktivatime;
+    [SerializeField] private AudioSource RingMysic;
+    public bool d = false;
     private void Awake()
     {
         instance = this;
@@ -49,20 +51,27 @@ public class ringscript : MonoBehaviour
     {
         if (krest != null && ring != null)
         {
+
+       
+           
             if (MainCharacter.mana > 0 && (Input.GetMouseButton(1)))
             {
+                
 
                 MainCharacter.mana -= Time.deltaTime;
                 if (MainCharacter.mana <= 0)
                 {
+                    //RingMysic.Play();
                     krest.gameObject.SetActive(false);
                     ring.gameObject.SetActive(false);
 
                 }
                 else
                 {
+                   
                     krest.gameObject.SetActive(true);
                     ring.gameObject.SetActive(true);
+                   
                 }
 
             }
@@ -70,7 +79,14 @@ public class ringscript : MonoBehaviour
             {
                 krest.gameObject.SetActive(false);
                 ring.gameObject.SetActive(false);
+                RingMysic.Play();
+                
             }
+          
+            
         }
+       
+
+          
     }
 }
