@@ -17,8 +17,7 @@ public class Pyatnashki : Quests
         b = temp;
     }
 
-
-    private bool CheckCell(int ind, int shift)
+    private bool CheckCell(int ind, int shift) //перемещение клеточек
     {
         if (((ind + shift) % 4 == 3 && shift == -1) || ((ind + shift) % 4 == 0 && shift == 1))
             return false;
@@ -42,7 +41,6 @@ public class Pyatnashki : Quests
 
     }
 
-
     public bool move(int ind, bool ChangeCokor = true)
     {
         if (ind > cells.GetLength(0) || ind < 0) return false;
@@ -55,7 +53,7 @@ public class Pyatnashki : Quests
         return false;
     }
 
-    public void ApplyButton_Click()
+    private void ApplyButton_Click()
     {
         if (numbers[numbers.GetLength(0) - 1].text != "")
         {
@@ -87,7 +85,8 @@ public class Pyatnashki : Quests
             numbers[i].text = (i + 1).ToString();
         }
         numbers[numbers.GetLength(0) - 1].text = "";
-
+        
+        //привязка методов к кнопкам
         cells[0].onClick.AddListener(() => { move(0); });
         cells[1].onClick.AddListener(() => { move(1); });
         cells[2].onClick.AddListener(() => { move(2); });

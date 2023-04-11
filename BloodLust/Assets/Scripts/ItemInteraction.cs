@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class ItemInteraction : MonoBehaviour
 {
     [SerializeField] protected GameObject Sprite;
-    //[SerializeField] float deviation = 0f;
     [SerializeField] bool Is3D = true;
     [SerializeField] protected GameObject InfoCanvas;
     [SerializeField] Text TextCanvas;
@@ -15,13 +14,14 @@ public class ItemInteraction : MonoBehaviour
     [SerializeField] string text = "взаимодействовать";
     protected Transform player;
     protected bool CanTrack;
-    // Start is called before the first frame update
-    void Start()
+
+    void Start() //устанавливаем текст дл€ взаимодействи€ с предметом
     {
         InfoCanvas.SetActive(false);
     }
 
-    protected void PrintInteraction()
+    protected void PrintInteraction() // ≈сли игрок находитс€ в предеделах заданного рассто€ни€ от предмета, то взаимодействие с ним становитс€ возможным,
+        // отображаетс€ текст взаимодействи€
     {
         if (GameObject.FindGameObjectWithTag("Player"))
         {
@@ -39,7 +39,7 @@ public class ItemInteraction : MonoBehaviour
         }
     }
 
-    protected void ChangePlayerPos()
+    protected void ChangePlayerPos() //изменение сло€, на котором находитс€ объект, дл€ создани€ видимости, что предмет объемный
     {
         if (Is3D && CanTrack)
         {
@@ -48,10 +48,9 @@ public class ItemInteraction : MonoBehaviour
             else if (player != null && transform.position.y < player.position.y)
                 Sprite.GetComponent<SpriteRenderer>().sortingOrder = 110;
         }
-
     }
 
-    protected void SetText()
+    protected void SetText() // изменение текста взаимодействи€ с предметом
     {
         TextCanvas.text = "[R]- " + text;
     }
