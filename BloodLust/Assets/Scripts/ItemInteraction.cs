@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class ItemInteraction : MonoBehaviour
 {
     [SerializeField] protected GameObject Sprite;
+    //[SerializeField] float deviation = 0f;
     [SerializeField] bool Is3D = true;
     [SerializeField] protected GameObject InfoCanvas;
     [SerializeField] Text TextCanvas;
@@ -42,7 +43,7 @@ public class ItemInteraction : MonoBehaviour
     {
         if (Is3D && CanTrack)
         {
-            if (player != null && transform.position.y > player.position.y)
+            if (player != null && transform.position.y> player.position.y)
                 Sprite.GetComponent<SpriteRenderer>().sortingOrder = 3;
             else if (player != null && transform.position.y < player.position.y)
                 Sprite.GetComponent<SpriteRenderer>().sortingOrder = 110;

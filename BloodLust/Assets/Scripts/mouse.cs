@@ -23,6 +23,7 @@ public class mouse : MonoBehaviour
         float angle = (Mathf.Atan2(targetDir.y, targetDir.x) * Mathf.Rad2Deg);
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         a = (Gun.GetComponent<Transform>().eulerAngles.z);
+        Debug.Log(a);
 
         if (a > 90 || a < 270)
         {

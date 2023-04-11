@@ -21,7 +21,8 @@ public class BigWall : MonoBehaviour
         if (GameObject.FindGameObjectWithTag("Player"))
         {
             player = GameObject.FindGameObjectWithTag("Player").transform;
-            Debug.Log($"игрок {player.position.y}  стена  {transform.position.y}  барьер  {barrier.GetComponent<Transform>().position.y}");
+
+           // Debug.Log($"игрок {player.position.y}  стена  {transform.position.y}  барьер  {barrier.GetComponent<Transform>().position.y}");
 
             if (player.position.y > transform.position.y)
             {

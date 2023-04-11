@@ -7,6 +7,7 @@ public class Pistol : MonoBehaviour
 {
     public static int number_of_bullets = 32;
     [SerializeField] Text BulletsInfo;
+    [SerializeField] private AudioSource PistolReload;
 
     void Start()
     {
@@ -19,7 +20,8 @@ public class Pistol : MonoBehaviour
         if (Movement.Pistolreload == 8)
         {
             Movement.Pistolreload = 0;
-            Movement.fireTimer = 4f;
+            Movement.fireTimer = 2f;
+            PistolReload.Play();
         }
 
         BulletsInfo.text = "x" + number_of_bullets.ToString();

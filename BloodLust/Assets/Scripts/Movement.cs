@@ -8,6 +8,10 @@ public class Movement : MonoBehaviour
 
     [SerializeField] private float speed = 5f;
     [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private AudioSource PistolShoot;
+    [SerializeField] private AudioSource ShootGunShoot;
+    [SerializeField] private AudioSource Moving;
+
     private Animator anim;
     private Animator anim2;
     //[SerializeField] private Transform firePoint;
@@ -42,6 +46,7 @@ public class Movement : MonoBehaviour
     [SerializeField] Text Bullets1Info;
     [SerializeField] Text Bullets2Info;
     [SerializeField] GameObject InventoryKnife;
+    [SerializeField] private AudioSource Habar;
 
     void Start()
     {
@@ -60,8 +65,11 @@ public class Movement : MonoBehaviour
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
 
+       
+
         if (Input.GetMouseButtonDown(0) && CanShoot && fireTimer <= 0f && WeaphonScript.currentWeaphonIndex == 2 && Pistol.number_of_bullets != 0)
         {
+            PistolShoot.Play();
             anim2 = WeaphonScript.currentGun.transform.GetComponent<Animator>();
             PlayAnim2();
             Shoot1();
@@ -74,8 +82,9 @@ public class Movement : MonoBehaviour
         {
             fireTimer -= Time.deltaTime;
         }
-        if (Input.GetMouseButtonDown(0) && CanShoot && fireTimer2 <= 0f && WeaphonScript.currentWeaphonIndex == 3)
+        if (Input.GetMouseButtonDown(0) && CanShoot && fireTimer2 <= 0f && WeaphonScript.currentWeaphonIndex == 3 && HandGun.number_of_bullets != 0)
         {
+            ShootGunShoot.Play();
             anim = WeaphonScript.currentGun.transform.GetComponent<Animator>();
             Shoot2();
             PlayAnim();
@@ -89,6 +98,21 @@ public class Movement : MonoBehaviour
         {
             fireTimer2 -= Time.deltaTime;
         }
+/*if (Input.GetMouseButtonDown(0) && CanShoot && fireTimer <= 0f && WeaphonScript.currentWeaphonIndex == 1 && Pistol.number_of_bullets != 0)
+        {
+            PistolShoot.Play();
+            anim2 = WeaphonScript.currentGun.transform.GetComponent<Animator>();
+            PlayAnim2();
+            Shoot1();
+            Pistol.number_of_bullets--;
+            Pistolreload++;
+            fireTimer = fireRate;
+
+        }
+        else if (WeaphonScript.currentWeaphonIndex == 2 && Pistol.number_of_bullets != 0)
+        {
+            fireTimer -= Time.deltaTime;
+        }*/
         if (Input.GetButton("Sprint"))
         {
             runSpeed = fastSpeed;
@@ -104,11 +128,17 @@ public class Movement : MonoBehaviour
 
         if (CanMove)
         {
-            if (horizontal != 0 && vertical != 0)
+            
+            if (horizontal != 0 || vertical != 0)
             {
+               
                 horizontal *= moveLimiter;
                 vertical *= moveLimiter;
             }
+            else
+            { Moving.Play();
+            }
+           
             body.velocity = new Vector2(horizontal * runSpeed, vertical * runSpeed);
         }
 
@@ -152,6 +182,7 @@ public class Movement : MonoBehaviour
 
         if (other.gameObject.CompareTag("Habar"))
         {
+            Habar.Play();
             Destroy(other.gameObject);
             Pistol.number_of_bullets += 16;
             Bullets1Info.text = "x" + Pistol.number_of_bullets.ToString();
@@ -159,6 +190,7 @@ public class Movement : MonoBehaviour
         }
         if (other.gameObject.CompareTag("Habar2"))
         {
+            Habar.Play();
             Destroy(other.gameObject);
             HandGun.number_of_bullets += 8;
             Bullets2Info.text = "x" + HandGun.number_of_bullets.ToString();
@@ -166,6 +198,7 @@ public class Movement : MonoBehaviour
         }
         if (other.gameObject.CompareTag("Knife"))
         {
+            Habar.Play();
             Destroy(other.gameObject);
             WeaphonScript.totalWeaphons = 2;
             InventoryKnife.SetActive(true);

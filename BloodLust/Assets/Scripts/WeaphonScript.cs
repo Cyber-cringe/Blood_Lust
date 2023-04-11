@@ -7,6 +7,7 @@ public class WeaphonScript : MonoBehaviour
     public static int totalWeaphons = 1;
     [SerializeField]
     public static int currentWeaphonIndex;
+    [SerializeField] private AudioSource weaponswitching;
     public GameObject[] guns;
     public GameObject weaphonHolder;
     public static GameObject currentGun;
@@ -33,6 +34,7 @@ public class WeaphonScript : MonoBehaviour
     {
         totalWeaphons = 4;
         if (Input.GetAxis("Mouse ScrollWheel") > 0f)
+            
             {
             if (currentWeaphonIndex < totalWeaphons - 1)
             {
@@ -40,16 +42,19 @@ public class WeaphonScript : MonoBehaviour
                 currentWeaphonIndex += 1;
                 guns[currentWeaphonIndex].SetActive(true);
                 currentGun = guns[currentWeaphonIndex];
+                weaponswitching.Play();
             }
         }
         if (Input.GetAxis("Mouse ScrollWheel") < 0f)
         {
+           
             if (currentWeaphonIndex > 0)
             {
                 guns[currentWeaphonIndex].SetActive(false);
                 currentWeaphonIndex -= 1;
                 guns[currentWeaphonIndex].SetActive(true);
                 currentGun = guns[currentWeaphonIndex];
+                weaponswitching.Play();
             }
         }
 

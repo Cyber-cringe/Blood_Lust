@@ -21,6 +21,8 @@ namespace Pathfinding
         public Transform firepoint;
         public GameObject bulletPrefab;
         public Transform RotationEnemies;
+        [SerializeField] private AudioSource FireBoll;
+        [SerializeField] private AudioSource Moving;
 
 
 
@@ -57,6 +59,7 @@ namespace Pathfinding
                 Shoot();
                 if ((Vector2.Distance(target.position, transform.position) >= 10))
                 {
+                    //Moving.Play();
                     ai.destination = target.position;
 
                 }
@@ -72,10 +75,11 @@ namespace Pathfinding
         }
         public void Shoot()
         {
-            float fireRate = 0.5f;
+            float fireRate = 0.9f;
 
             if (fireTime <= 0)
             {
+                FireBoll.Play();
                 Instantiate(bulletPrefab, firepoint.position, firepoint.rotation);
                 fireTime = fireRate;
             }

@@ -24,6 +24,10 @@ public class MainCharacter : MonoBehaviour
     [SerializeField] Text ManaInfo;
     [SerializeField] GameObject Arrow;
     [SerializeField] GameObject Cross;
+    [SerializeField] private AudioSource Damage;
+    [SerializeField] private AudioSource Hills;
+    [SerializeField] private AudioSource MAXHills;
+
     // Start is called before the first frame update
     private void Awake()
     {
@@ -42,6 +46,7 @@ public class MainCharacter : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Health"))
         {
+            Hills.Play();
             Destroy(other.gameObject);
             HP += MaxHP - HP>=20? 20: MaxHP - HP;
 
@@ -49,6 +54,7 @@ public class MainCharacter : MonoBehaviour
 
         if (other.gameObject.CompareTag("Pumping"))
         {
+            MAXHills.Play();
             Destroy(other.gameObject);
             MaxHP += 50;
 
@@ -57,9 +63,8 @@ public class MainCharacter : MonoBehaviour
         if (other.gameObject.CompareTag("Enemies"))
         {
             //Destroy(other.gameObject);
-            Maincharacter.GetComponent<Transform>().position = Maincharacter.GetComponent<Transform>().position + new Vector3(2, 0, 0);
             HP -= 10;
-
+            Damage.Play();
             if (HP <= 0)
             {
                 HPInfo.text = ($"{HP}/{MaxHP}");
@@ -74,7 +79,7 @@ public class MainCharacter : MonoBehaviour
             Destroy(other.gameObject);
             //Maincharacter.GetComponent<Transform>().position = Maincharacter.GetComponent<Transform>().position + new Vector3(2, 0, 0);
             HP -= 10;
-
+            
             if (HP <= 0)
             {
                 HPInfo.text = ($"{HP}/{MaxHP}");
@@ -86,6 +91,7 @@ public class MainCharacter : MonoBehaviour
         }
         if (other.gameObject.CompareTag("PYLIAVRAGA"))
         {
+            Damage.Play();
             Destroy(other.gameObject);
             //Maincharacter.GetComponent<Transform>().position = Maincharacter.GetComponent<Transform>().position + new Vector3(2, 0, 0);
             HP -= 10;
