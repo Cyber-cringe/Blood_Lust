@@ -74,8 +74,7 @@ public class Pyatnashki : Quests
         Movement.CanShoot = true;
         Movement.CanMove = true;
         GetItem.SetActive(true);
-        Interface.MessageText = LowerPanelMessage;
-        Interface.ShowPanel = true;
+        interf.ShowPanel(LowerPanelMessage);
     }
 
     void Start()
@@ -85,29 +84,31 @@ public class Pyatnashki : Quests
             numbers[i].text = (i + 1).ToString();
         }
         numbers[numbers.GetLength(0) - 1].text = "";
-        
-        //привязка методов к кнопкам
-        cells[0].onClick.AddListener(() => { move(0); });
-        cells[1].onClick.AddListener(() => { move(1); });
-        cells[2].onClick.AddListener(() => { move(2); });
-        cells[3].onClick.AddListener(() => { move(3); });
-        cells[4].onClick.AddListener(() => { move(4); });
-        cells[5].onClick.AddListener(() => { move(5); });
-        cells[6].onClick.AddListener(() => { move(6); });
-        cells[7].onClick.AddListener(() => { move(7); });
-        cells[8].onClick.AddListener(() => { move(8); });
-        cells[9].onClick.AddListener(() => { move(9); });
-        cells[10].onClick.AddListener(() => { move(10); });
-        cells[11].onClick.AddListener(() => { move(11); });
-        cells[12].onClick.AddListener(() => { move(12); });
-        cells[13].onClick.AddListener(() => { move(13); });
-        cells[14].onClick.AddListener(() => { move(14); }); 
-        AplyButton.onClick.AddListener(() => { ApplyButton_Click(); });
 
+        //привязка методов к кнопкам
+        {
+            cells[0].onClick.AddListener(() => { move(0); });
+            cells[1].onClick.AddListener(() => { move(1); });
+            cells[2].onClick.AddListener(() => { move(2); });
+            cells[3].onClick.AddListener(() => { move(3); });
+            cells[4].onClick.AddListener(() => { move(4); });
+            cells[5].onClick.AddListener(() => { move(5); });
+            cells[6].onClick.AddListener(() => { move(6); });
+            cells[7].onClick.AddListener(() => { move(7); });
+            cells[8].onClick.AddListener(() => { move(8); });
+            cells[9].onClick.AddListener(() => { move(9); });
+            cells[10].onClick.AddListener(() => { move(10); });
+            cells[11].onClick.AddListener(() => { move(11); });
+            cells[12].onClick.AddListener(() => { move(12); });
+            cells[13].onClick.AddListener(() => { move(13); });
+            cells[14].onClick.AddListener(() => { move(14); });
+            AplyButton.onClick.AddListener(() => { ApplyButton_Click(); });
+        }
+        
         int CellInd;
         int VoidCellInd = 15;
 
-        for (int i = 0; i < UnityEngine.Random.Range(50, 75);)
+        for (int i = 0; i < UnityEngine.Random.Range(75, 100);)
         {
             CellInd = UnityEngine.Random.Range(0, 15);
             if ((Mathf.Abs(VoidCellInd - CellInd) == 4 || Mathf.Abs(VoidCellInd - CellInd) == 1) && numbers[CellInd].text != "" && move(CellInd, false))

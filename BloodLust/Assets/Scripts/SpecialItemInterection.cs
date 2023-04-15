@@ -5,6 +5,7 @@ using UnityEngine;
 public class SpecialItemInterection : ItemForResearch
 {
     [SerializeField] GameObject GotItem;
+    [SerializeField] string AlreadyActiveText = "Здесь больше ничего нет.";
     // Start is called before the first frame update
     void Start()
     {
@@ -28,13 +29,11 @@ public class SpecialItemInterection : ItemForResearch
         }
         else if (Input.GetKeyUp(KeyCode.R) && CanTrack && !GotItem.activeSelf && MainCharacter.ActiveItem != ItemForUnlock && ItemForUnlock != "Default")
         {
-            Interface.MessageText = ErrorText;
-            Interface.ShowPanel = true;
+            interf.ShowPanel(ErrorText);
         }
-        else if (Input.GetKeyUp(KeyCode.R) && CanTrack && GotItem.activeSelf && !Interface.ShowPanel)
+        else if (Input.GetKeyUp(KeyCode.R) && CanTrack && GotItem.activeSelf )
         {
-            Interface.MessageText = "Здесь больше ничего нет.";
-            Interface.ShowPanel = true;
+            interf.ShowPanel(AlreadyActiveText);
         }
     }
 }

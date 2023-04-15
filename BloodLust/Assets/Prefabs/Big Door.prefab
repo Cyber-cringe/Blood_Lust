@@ -104,7 +104,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 129950727978553778}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.08, y: -1.75, z: 0}
   m_LocalScale: {x: 10, y: 3, z: 1}
   m_Children:
@@ -180,9 +180,10 @@ MonoBehaviour:
   Is3D: 1
   InfoCanvas: {fileID: 129950728532692739}
   TextCanvas: {fileID: 129950727777981010}
-  ItemForUnlock: Default
+  ItemForUnlock: Key1
   ErrorText: "\u041D\u0443\u0436\u0435\u043D \u043A\u043B\u044E\u0447."
   text: "\u041E\u0442\u043A\u0440\u044B\u0442\u044C"
+  interf: {fileID: 0}
   axis: 89
   DoorSprite: {fileID: 129950728612306491}
 --- !u!1 &129950728532692739

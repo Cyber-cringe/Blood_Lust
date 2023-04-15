@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class Inventory : MonoBehaviour
 {
@@ -31,18 +32,6 @@ public class Inventory : MonoBehaviour
         {
             SItems[i].SetActive(false);
         }
-
-        /*LastItemID = PlayerPrefs.GetInt("LastItemID");
-        if (LastItemID != -1)
-        {
-            for (int i = 0; i <= LastItemID; i++)
-            {
-                SItems[i].SetActive(true);
-            }
-
-        }*/
-
-
     }
 
 
@@ -50,22 +39,18 @@ public class Inventory : MonoBehaviour
     void Update()
     {
        if(Input.GetKeyUp(KeyCode.E) & !IsActive )
-        {
+       {
             IsActive = true;
             Inv.SetActive(true);
-            Movement.CanShoot = false;
-        } 
+       } 
        else if (Input.GetKeyUp(KeyCode.E) & IsActive)
-        {
+       {
             IsActive = false;
             Inv.SetActive(false);
-            Movement.CanShoot = true;
-        }
-
+       }
+        Movement.CanShoot =(EventSystem.current.IsPointerOverGameObject()) ? false :(Movement.CanMove)? true: false;
     }
 
-   
-    
     
     public void SetSave()
     {

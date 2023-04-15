@@ -121,7 +121,7 @@ public class MainCharacter : MonoBehaviour
     IEnumerator Recovery()
     {
         HP += (Cross.activeSelf && MaxHP > HP) ? 1 : 0;
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.25f);
         StartCoroutine(Recovery());
     }
     // Update is called once per frame

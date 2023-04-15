@@ -8,6 +8,7 @@ public class Quests : MonoBehaviour
     [SerializeField] protected GameObject Quest;
     [SerializeField] protected GameObject GetItem;
     [SerializeField] protected Button AplyButton;
+    [SerializeField] protected Interface interf;
     [SerializeField] protected string LowerPanelMessage = "Найден прудмет: ключ";
     // Start is called before the first frame update
 

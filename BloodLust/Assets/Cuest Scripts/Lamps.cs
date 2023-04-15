@@ -50,8 +50,7 @@ public class Lamps : Quests
             Movement.CanShoot = true;
             Movement.CanMove = true;
             GetItem.SetActive(true);
-            Interface.MessageText = LowerPanelMessage;
-            Interface.ShowPanel = true;
+            interf.ShowPanel(LowerPanelMessage);
         }
         else
         {

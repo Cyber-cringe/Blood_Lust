@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class Movement : MonoBehaviour
 {
-
     [SerializeField] private float speed = 5f;
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private AudioSource PistolShoot;

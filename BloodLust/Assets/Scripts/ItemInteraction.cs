@@ -12,6 +12,7 @@ public class ItemInteraction : MonoBehaviour
     [SerializeField] protected string ItemForUnlock;
     [SerializeField] protected string ErrorText = "Ошибка.";
     [SerializeField] string text = "взаимодействовать";
+    [SerializeField] protected Interface interf;
     protected Transform player;
     protected bool CanTrack;
 

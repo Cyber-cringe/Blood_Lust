@@ -5,6 +5,7 @@ using UnityEngine;
 public class SimpleItemInterection : ItemInteraction
 {
     [SerializeField] string TextForInfoPanel;
+    [SerializeField] string AlreadyActiveText = "Здесь больше ничего нет.";
     [SerializeField] GameObject GotItem;
 
     void Start()
@@ -21,18 +22,15 @@ public class SimpleItemInterection : ItemInteraction
         if (Input.GetKeyUp(KeyCode.R) && CanTrack && !GotItem.activeSelf && (MainCharacter.ActiveItem == ItemForUnlock || ItemForUnlock == "Default"))
         {
             GotItem.SetActive(true);
-            Interface.MessageText = TextForInfoPanel;
-            Interface.ShowPanel = true;
+            interf.ShowPanel(TextForInfoPanel);
         }
         else if (Input.GetKeyUp(KeyCode.R) && CanTrack && !GotItem.activeSelf && MainCharacter.ActiveItem != ItemForUnlock && ItemForUnlock != "Default")
         {
-            Interface.MessageText = ErrorText;
-            Interface.ShowPanel = true;
+            interf.ShowPanel(ErrorText);
         }
-        else if (Input.GetKeyUp(KeyCode.R) && CanTrack && GotItem.activeSelf && !Interface.ShowPanel)
+        else if (Input.GetKeyUp(KeyCode.R) && CanTrack && GotItem.activeSelf )
         {
-            Interface.MessageText = "Здесь больше ничего нет.";
-            Interface.ShowPanel = true;
+            interf.ShowPanel(AlreadyActiveText);
         }
 
     }

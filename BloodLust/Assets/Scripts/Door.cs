@@ -52,8 +52,7 @@ public class Door : ItemInteraction
 
         if (Input.GetKeyUp(KeyCode.R) & CanTrack & MainCharacter.ActiveItem != ItemForUnlock &  !IsOpen & ItemForUnlock != "Default")
         {
-            Interface.MessageText = ErrorText;
-            Interface.ShowPanel = true;
+            interf.ShowPanel(ErrorText);
         }
         
     }
