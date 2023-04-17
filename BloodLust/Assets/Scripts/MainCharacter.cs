@@ -138,4 +138,31 @@ public class MainCharacter : MonoBehaviour
             else Arrow.SetActive(false);
         }
     }
+
+    public string RandReward()
+    {
+        int PistolCartridges = 0;
+        int ShoutGunCartridges = 0;
+        int rand = UnityEngine.Random.Range(0, 4);
+
+        switch (rand)
+        {
+            case 0:
+                HP = MaxHP;
+                return "Здоровье восстановлено.";
+            case 1:
+                MaxHP += 15;
+                return ("Увеличен максимальный запас здоровья");
+            case 2:
+                PistolCartridges = UnityEngine.Random.Range(5, 15);
+                Pistol.number_of_bullets += PistolCartridges;
+                return ($"Найдены патроны для пистолета: {PistolCartridges}");
+            case 3:
+                ShoutGunCartridges = UnityEngine.Random.Range(2, 8);
+                HandGun.number_of_bullets += ShoutGunCartridges;
+                return ($"Найдены патроны для дробовика: {PistolCartridges}");
+        }
+        return "error";
+       
+    }
 }

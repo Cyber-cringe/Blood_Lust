@@ -6,10 +6,12 @@ using UnityEngine.SceneManagement;
 public class Menu : MonoBehaviour
 {
     [SerializeField] GameObject AutorsInfo;
+    [SerializeField] GameObject History;
     // Start is called before the first frame update
     void Start()
     {
         AutorsInfo.SetActive(false);
+        History.SetActive(false);
     }
 
     // Update is called once per frame
@@ -20,7 +22,8 @@ public class Menu : MonoBehaviour
 
     public void ButtonStart()
     {
-        SceneManager.LoadScene(1);
+        History.SetActive(true);
+        //SceneManager.LoadScene(1);
     }
     public void Button1()
     {
@@ -34,5 +37,10 @@ public class Menu : MonoBehaviour
     public void ButtonBeck()
     {
         AutorsInfo.SetActive(false);
+    }
+
+    public void ButtonContinueGame()
+    {
+        SceneManager.LoadScene(1);
     }
 }
