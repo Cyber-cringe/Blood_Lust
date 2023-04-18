@@ -5,9 +5,10 @@ using UnityEngine;
 public class Locks : ItemForResearch
 {
     [SerializeField] string AlreadyActiveText = "Здесь больше ничего нет.";
-    [SerializeField] byte LockID;
-    public bool Passed  { get; set; }
-    
+    //[SerializeField] byte LockID;
+    //public bool Passed  { get; set; }
+    [SerializeField] private string ID;
+    public static string MainActiveID { get; private set; }
   
     [SerializeField]  LockQuest LQ;
     // Start is called before the first frame update
@@ -24,21 +25,21 @@ public class Locks : ItemForResearch
     {
         PrintInteraction();
         ChangePlayerPos();
-        if (Input.GetKeyUp(KeyCode.R) && !NextStepOrQuest.activeSelf && CanTrack && !Passed && (MainCharacter.ActiveItem == ItemForUnlock || ItemForUnlock == "Default"))
+        if (Input.GetKeyUp(KeyCode.R) && !NextStepOrQuest.activeSelf && CanTrack && !LQ.CheckedPassedID(ID) && (MainCharacter.ActiveItem == ItemForUnlock || ItemForUnlock == "Default"))
         {
             NextStepOrQuest.SetActive(true);
+            MainActiveID = ID;
             LQ.StartWork();
-            LQ.PassedLockInd = LockID;
             InfoCanvas.SetActive(false);
             Movement.CanShoot = false;
             Movement.CanMove = false;
             WeaphonScript.totalWeaphons = 3;
         }
-        else if (Input.GetKeyUp(KeyCode.R) && CanTrack && !Passed && MainCharacter.ActiveItem != ItemForUnlock && ItemForUnlock != "Default")
+        else if (Input.GetKeyUp(KeyCode.R) && CanTrack && !LQ.CheckedPassedID(ID) && MainCharacter.ActiveItem != ItemForUnlock && ItemForUnlock != "Default")
         {
             interf.ShowPanel(ErrorText);
         }
-        else if (Input.GetKeyUp(KeyCode.R) && CanTrack && Passed)
+        else if (Input.GetKeyUp(KeyCode.R) && CanTrack && LQ.CheckedPassedID(ID))
         {
             interf.ShowPanel(AlreadyActiveText);
         }

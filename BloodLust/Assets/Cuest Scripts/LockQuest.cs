@@ -10,14 +10,24 @@ public class LockQuest : Quests
     [SerializeField] GameObject[] grooves = new GameObject[5];
     private bool[] IsActive = new bool[5];
     private bool StopCor;
-    [SerializeField] Locks[] Passed = new Locks [4];
-    public byte PassedLockInd;
+    //[SerializeField] Locks[] Passed = new Locks [4];
+    //public byte PassedLockInd;
     [SerializeField] MainCharacter character;
+    private List<string> PassedID = new List<string>(10);
 
     Color on = new Color(100 / 255f, 240 / 255f, 75 / 255f, 175 / 255f);
     Color off = new Color(220 / 255f, 220 / 255f, 220 / 255f, 175 / 255f);
     int ind;
 
+    public void AddPassedID(string id)
+    {
+        PassedID.Add(id);
+    }
+
+    public bool CheckedPassedID(string id)
+    {
+        return PassedID.Contains(id);
+    }
 
     void Start()
     {
@@ -59,7 +69,7 @@ public class LockQuest : Quests
             yield break;
 
         int RandInd = UnityEngine.Random.Range(0, 5);
-        float RandTime = UnityEngine.Random.Range(3, 7) / 10f;
+        float RandTime = UnityEngine.Random.Range(4, 8) / 10f;
         ind = RandInd;
         lamps[RandInd].color = on;
         yield return new WaitForSeconds(RandTime);
@@ -102,26 +112,18 @@ public class LockQuest : Quests
         {
             if (!IsActive[i])
             {
-                EverythingIsActive = false;
-                break;
+                StartCoroutine(ReturnColor(AplyButton));
+                return;
             }    
         }
+        
+        AddPassedID(Locks.MainActiveID);
+        LowerPanelMessage = character.RandReward();
+        Quest.SetActive(false);
+        Movement.CanShoot = true;
+        Movement.CanMove = true;
+        interf.ShowPanel(LowerPanelMessage);
 
-        if (!EverythingIsActive)
-        {
-            StartCoroutine(ReturnColor(AplyButton));
-        }
-        else
-        {
-            LowerPanelMessage = character.RandReward();
-            
-
-            Passed[PassedLockInd].Passed = true;
-            Quest.SetActive(false);
-            Movement.CanShoot = true;
-            Movement.CanMove = true;
-            interf.ShowPanel(LowerPanelMessage);
-        }
     }
 }
 

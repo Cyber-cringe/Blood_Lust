@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Boss : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class Boss : MonoBehaviour
     public static float mana = 4;
     public float timer = 3f;
     [SerializeField] private AudioSource DEad;
+    [SerializeField] private GameObject VictoryMenu;
 
 
     private void Start()
@@ -57,7 +59,7 @@ public class Boss : MonoBehaviour
             {
                 mana += 2;
                 DEad.Play();
-               
+                StartCoroutine(Victory());
 
             }
         }
@@ -69,5 +71,12 @@ public class Boss : MonoBehaviour
     public void deadFunc()
     {
         Destroy(gameObject);
+    }
+
+    IEnumerator Victory()
+    {
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene(2);
+
     }
 }

@@ -134,14 +134,14 @@ public class Enemies : MonoBehaviour
                 {
 
                     picture6.gameObject.SetActive(true);
-                    Destroy(picture5);
+                    
                 }
                 else
                     if (a > 180 && a < 360)
                 {
 
                     picture5.gameObject.SetActive(true);
-                    Destroy(picture6);
+                   
                 }
                 StartCoroutine("InvisibleSprite");
 

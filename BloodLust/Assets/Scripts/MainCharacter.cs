@@ -27,6 +27,7 @@ public class MainCharacter : MonoBehaviour
     [SerializeField] private AudioSource Damage;
     [SerializeField] private AudioSource Hills;
     [SerializeField] private AudioSource MAXHills;
+    [SerializeField] private GameObject Killed;
 
     // Start is called before the first frame update
     private void Awake()
@@ -35,6 +36,7 @@ public class MainCharacter : MonoBehaviour
     }
     void Start()
     {
+        Killed.SetActive(false);
         HP = MaxHP;
         Arrow.SetActive(false);
         rb = GetComponent<Rigidbody2D>();
@@ -70,6 +72,7 @@ public class MainCharacter : MonoBehaviour
                 HPInfo.text = ($"{HP}/{MaxHP}");
                 HPBar.fillAmount = HP / MaxHP;
                 Destroy(gameObject);
+                Killed.SetActive(true);
             }
 
 
@@ -85,6 +88,7 @@ public class MainCharacter : MonoBehaviour
                 HPInfo.text = ($"{HP}/{MaxHP}");
                 HPBar.fillAmount = HP / MaxHP;
                 Destroy(gameObject);
+                Killed.SetActive(true);
             }
 
 
@@ -101,6 +105,7 @@ public class MainCharacter : MonoBehaviour
                 HPInfo.text = ($"{HP}/{MaxHP}");
                 HPBar.fillAmount = HP / MaxHP;
                 Destroy(gameObject);
+                Killed.SetActive(true);
             }
 
 
