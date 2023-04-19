@@ -170,4 +170,20 @@ public class MainCharacter : MonoBehaviour
         return "error";
        
     }
+
+    public void SetHP(float a)
+    {
+        HP = a > 1 ? a : 1;
+    }
+    public void SetMana(float a)
+    {
+        mana = a;
+    }
+    public void SetMaxHP(float a)
+    {
+        MaxHP = a;
+    }
+
+  
+
 }

@@ -84,7 +84,6 @@ public class LockQuest : Quests
 
     public void StartWork()
     {
-        StopCoroutine(RandLamp());
         for (int i = 0; i < IsActive.GetLength(0); i++)
         {
             if (IsActive[i])

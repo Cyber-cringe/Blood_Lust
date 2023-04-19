@@ -26,7 +26,7 @@ public class EnterPasswordCuest : Quests
         AplyButton.onClick.AddListener(() => { ApplyButton_Click(); });
     }
 
-    public void Button_Click(int i)
+    private void Button_Click(int i)
     {
         if (Convert.ToInt32(PS[i].text)<9)
             PS[i].text=(Convert.ToInt32(PS[i].text) + 1).ToString();
@@ -34,7 +34,7 @@ public class EnterPasswordCuest : Quests
             PS[i].text = "0";
     }
     
-    public void ApplyButton_Click()
+    private void ApplyButton_Click()
     {
         if ((PS[0].text + PS[1].text + PS[2].text + PS[3].text) == password)
         {

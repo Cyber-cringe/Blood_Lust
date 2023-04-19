@@ -12,20 +12,11 @@ public class Quests : MonoBehaviour
     [SerializeField] protected string LowerPanelMessage = "Найден прудмет: ключ";
     // Start is called before the first frame update
 
-    protected IEnumerator ReturnColor(Button button)
+    protected IEnumerator ReturnColor(Button button) //изменение цвета кнопки
     {
         button.GetComponent<Image>().color = new Color(1, 0, 0);
         yield return new WaitForSeconds(0.5f);
         button.GetComponent<Image>().color = new Color(90 / 255f, 90 / 255f, 90 / 255f);
     }
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
