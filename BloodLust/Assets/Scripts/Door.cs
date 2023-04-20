@@ -7,8 +7,7 @@ public class Door : ItemInteraction
     [SerializeField] char axis;
     private bool IsOpen;
     [SerializeField] GameObject DoorSprite;
-    //[SerializeField] GameObject barrier;
-    // Start is called before the first frame update
+
     void Start()
     {
         SetText();
@@ -32,7 +31,7 @@ public class Door : ItemInteraction
         if (Input.GetKeyUp(KeyCode.R) && CanTrack && (MainCharacter.ActiveItem == ItemForUnlock || IsOpen || ItemForUnlock=="Default"))
         {
             if(axis == 'X')
-            player.position = transform.position.x > player.position.x? new Vector3(transform.position.x + 3, transform.position.y) :new Vector3(transform.position.x - 3, transform.position.y);
+            player.position = transform.position.x > player.position.x? new Vector3(transform.position.x + 4, transform.position.y) :new Vector3(transform.position.x - 4, transform.position.y);
             
             if (axis == 'Y')
             {

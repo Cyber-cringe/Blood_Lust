@@ -19,7 +19,7 @@ public class BossRoom : MonoBehaviour
         if (GameObject.FindGameObjectWithTag("Player"))
         {
             player = GameObject.FindGameObjectWithTag("Player").transform;
-            if (Mathf.Abs(transform.position.x - player.position.x) <= 35 & Mathf.Abs(transform.position.y - player.position.y) <= 35)
+            if (BossFire.bosstrigger==true)
             {
                 HealthBar.SetActive(true);
             }

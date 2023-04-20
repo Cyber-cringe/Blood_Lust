@@ -54,7 +54,7 @@ namespace Pathfinding
         void Update()
         {
 
-            if ((target != null) && (Vector2.Distance(target.position, transform.position) <= 50))
+            if ((target != null) && (Vector2.Distance(target.position, transform.position) <= 30))
             {
                 Shoot();
                 if ((Vector2.Distance(target.position, transform.position) >= 10))

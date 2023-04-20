@@ -32,7 +32,7 @@ public class WeaphonScript : MonoBehaviour
     }
     void Update()
     {
-        totalWeaphons = 4;
+       //totalWeaphons = 2;
         if (Input.GetAxis("Mouse ScrollWheel") > 0f)
             
             {

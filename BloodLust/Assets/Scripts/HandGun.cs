@@ -11,6 +11,7 @@ public class HandGun: MonoBehaviour
 
     void Start()
     {
+        number_of_bullets = 0;
         BulletsInfo.text = "x" + number_of_bullets.ToString();
     }
 

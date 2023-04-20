@@ -201,8 +201,17 @@ public class Movement : MonoBehaviour
             Destroy(other.gameObject);
             WeaphonScript.totalWeaphons = 2;
             InventoryKnife.SetActive(true);
-            //WeaphonScript.currentWeaphonIndex = 2;
+            WeaphonScript.currentWeaphonIndex = 2;
 
         }
+        
+
+    }
+    private void OnTriggerEnter2D(Collider2D other) {
+        if (other.gameObject.CompareTag("Pol"))
+        {
+            BossFire.bosstrigger = true;
+        }
+
     }
 }

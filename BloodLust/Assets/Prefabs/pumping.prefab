@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5770961696715092051}
   - component: {fileID: 5770961696715092050}
   - component: {fileID: 5770961696715092077}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: pumping
   m_TagString: Pumping
   m_Icon: {fileID: 0}

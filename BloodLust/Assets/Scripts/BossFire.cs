@@ -31,7 +31,7 @@ public class BossFire : MonoBehaviour
     public Transform EnemySpawnerPosition2;
     public Transform EnemySpawnerPosition3;
     public Transform EnemySpawnerPosition4;
-
+    public static bool bosstrigger=false;
     public GameObject ring;
     public bool k = false;
     public static GameObject Enemy;
@@ -47,20 +47,21 @@ public class BossFire : MonoBehaviour
     void Start()
     {
         radius = 5f;
-        moveSpeed = 8f;
+        moveSpeed = 15f;
         fireTimer = fireRate;
         fireTimer2 = fireRate2;
         ring.gameObject.SetActive(false);
+        bosstrigger = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log((Vector2.Distance(Boss.GetComponent<Transform>().position, MainCharacter.GetComponent<Transform>().position)));
+       // Debug.Log((Vector2.Distance(Boss.GetComponent<Transform>().position, MainCharacter.GetComponent<Transform>().position)));
 
 
 
-        if ((Boss != null && MainCharacter != null) && (Vector2.Distance(Boss.GetComponent<Transform>().position, MainCharacter.GetComponent<Transform>().position) <= 30))
+        if ((Boss != null && MainCharacter != null) && (bosstrigger==true))
         {
 
 

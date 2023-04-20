@@ -13,14 +13,26 @@ public class mouse : MonoBehaviour
     public Transform Character2;
     public SpriteRenderer spi;
     public Transform knife;
+    public static Animator anim;
+    [SerializeField] float meleeSpeed;
+    float timeUntileMellee;
+    bool h;
+    bool k;
+
 
     [SerializeField] public static bool c = false;
     //public bool f = false;
+    public void Start()
+    {
+        //knife.GetComponent<Collider2D>().enabled = false;
+    }
 
     public void Update()
     {
-        if (WeaphonScript.currentWeaphonIndex == 1 && WeaphonScript.currentGun!= null)
+        if (WeaphonScript.currentWeaphonIndex == 1 && WeaphonScript.currentGun != null)
         {
+            //anim.SetTrigger("Play");
+            anim = WeaphonScript.currentGun.transform.GetComponent<Animator>();
             knife.gameObject.SetActive(true);
             knife.rotation = WeaphonScript.currentGun.transform.Find("Knife1").GetComponent<Transform>().rotation;
             knife.position = WeaphonScript.currentGun.transform.Find("Knife1").GetComponent<Transform>().position;
@@ -36,7 +48,7 @@ public class mouse : MonoBehaviour
             float angle = (Mathf.Atan2(targetDir.y, targetDir.x) * Mathf.Rad2Deg);
             transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
             a = (Gun.GetComponent<Transform>().eulerAngles.z);
-            Debug.Log(a);
+
 
             if (a > 90 || a < 270)
             {
@@ -47,7 +59,8 @@ public class mouse : MonoBehaviour
                     Character2.GetComponent<SpriteRenderer>().flipX = true;
                     if (WeaphonScript.currentWeaphonIndex == 1)
                     {
-
+                        //anim.SetBool("Flip", true);
+                        //anim = WeaphonScript.currentGun.transform.GetComponent<Animator>();
                         WeaphonScript.currentGun.transform.Find("Knife1").GetComponent<SpriteRenderer>().flipY = true;
 
                     }
@@ -60,6 +73,8 @@ public class mouse : MonoBehaviour
 
                     if (WeaphonScript.currentWeaphonIndex == 1)
                     {
+                        //anim.SetBool("Flip", true);
+                        //anim = WeaphonScript.currentGun.transform.GetComponent<Animator>();
                         WeaphonScript.currentGun.transform.Find("Knife1").GetComponent<SpriteRenderer>().flipY = true;
 
                     }
@@ -74,6 +89,7 @@ public class mouse : MonoBehaviour
                 {
                     if (WeaphonScript.currentWeaphonIndex == 1)
                     {
+                        //anim.SetBool("Flip", false);
                         WeaphonScript.currentGun.transform.Find("Knife1").GetComponent<SpriteRenderer>().flipY = false;
 
                     }
@@ -87,13 +103,50 @@ public class mouse : MonoBehaviour
                     WeaphonScript.currentGun.GetComponent<SpriteRenderer>().flipY = false;
                     if (WeaphonScript.currentWeaphonIndex == 1)
                     {
+                        ///anim.SetBool("Flip", true);
                         WeaphonScript.currentGun.transform.Find("Knife1").GetComponent<SpriteRenderer>().flipY = true;
 
                     }
                 }
 
             }
+            if (WeaphonScript.currentWeaphonIndex == 1)
+            {
+                if (timeUntileMellee <= 0f)
+                {
 
+
+                    if (WeaphonScript.currentGun.transform.Find("Knife1").GetComponent<SpriteRenderer>().flipY == true && Input.GetMouseButtonDown(0))
+                    {
+                        anim.SetBool("Flip", true);
+                        anim.SetTrigger("Play");
+                        knife.GetComponent<Collider2D>().enabled = true;
+                        timeUntileMellee = meleeSpeed;
+                    }
+                    else
+                    if (WeaphonScript.currentGun.transform.Find("Knife1").GetComponent<SpriteRenderer>().flipY == true)
+                    {
+                        knife.GetComponent<Collider2D>().enabled = false;
+                    }
+
+                    if (WeaphonScript.currentGun.transform.Find("Knife1").GetComponent<SpriteRenderer>().flipY == false && Input.GetMouseButtonDown(0))
+                    {
+                        anim.SetBool("Flip", false);
+                        anim.SetTrigger("Play");
+                        knife.GetComponent<Collider2D>().enabled = true;
+                        timeUntileMellee = meleeSpeed;
+                    }
+                    else
+                    if (WeaphonScript.currentGun.transform.Find("Knife1").GetComponent<SpriteRenderer>().flipY == false)
+                    {
+                        knife.GetComponent<Collider2D>().enabled = false;
+                    }
+                }
+                else
+                {
+                    timeUntileMellee -= Time.deltaTime;
+                }
+            }
         }
     }
 }

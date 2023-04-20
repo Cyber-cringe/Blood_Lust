@@ -17,7 +17,7 @@ public class Boss : MonoBehaviour
     public float KnockbackPower = 1000;
     public float KnockbackDuration = 1;
     public static float mana = 4;
-    public float timer = 3f;
+    public float timer = 4f;
     [SerializeField] private AudioSource DEad;
     [SerializeField] private GameObject VictoryMenu;
 
@@ -71,11 +71,12 @@ public class Boss : MonoBehaviour
     public void deadFunc()
     {
         Destroy(gameObject);
+       
     }
 
     IEnumerator Victory()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(3f);
         SceneManager.LoadScene(2);
 
     }

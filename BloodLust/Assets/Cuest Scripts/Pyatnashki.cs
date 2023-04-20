@@ -71,6 +71,7 @@ public class Pyatnashki : Quests
         }
 
         Quest.SetActive(false);
+        WeaphonScript.totalWeaphons += 1;
         Movement.CanShoot = true;
         Movement.CanMove = true;
         GetItem.SetActive(true);

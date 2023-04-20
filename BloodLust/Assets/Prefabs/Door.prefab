@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5917388776433641205}
   - component: {fileID: 5917388776433641211}
   - component: {fileID: 5917388776433641204}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,7 +91,7 @@ GameObject:
   - component: {fileID: 5917388776895062082}
   - component: {fileID: 5917388776895062083}
   - component: {fileID: 5917388776895062108}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -222,7 +222,7 @@ GameObject:
   - component: {fileID: 5917388777270630671}
   - component: {fileID: 5917388777270630664}
   - component: {fileID: 5917388777270630665}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -321,7 +321,7 @@ GameObject:
   - component: {fileID: 5917388777524951174}
   - component: {fileID: 5917388777524951172}
   - component: {fileID: 5917388777524951173}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -397,7 +397,7 @@ GameObject:
   - component: {fileID: 5917388777785806699}
   - component: {fileID: 5917388777785806697}
   - component: {fileID: 5917388777785806698}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -490,5 +490,6 @@ MonoBehaviour:
   ItemForUnlock: Default
   ErrorText: "\u041D\u0443\u0436\u0435\u043D \u043A\u043B\u044E\u0447."
   text: "\u041E\u0442\u043A\u0440\u044B\u0442\u044C"
+  interf: {fileID: 0}
   axis: 88
   DoorSprite: {fileID: 0}

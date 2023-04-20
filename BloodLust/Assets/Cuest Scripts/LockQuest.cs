@@ -10,8 +10,6 @@ public class LockQuest : Quests
     [SerializeField] GameObject[] grooves = new GameObject[5];
     private bool[] IsActive = new bool[5];
     private bool StopCor;
-    //[SerializeField] Locks[] Passed = new Locks [4];
-    //public byte PassedLockInd;
     [SerializeField] MainCharacter character;
     private List<string> PassedID = new List<string>(10);
 
@@ -36,6 +34,8 @@ public class LockQuest : Quests
             IsActive[i] = false;
         }
         ind = -1;
+
+        PassedID.Clear();
         AplyButton.onClick.AddListener(() => { ApplyButton_Click(); });
     }
 
@@ -65,8 +65,7 @@ public class LockQuest : Quests
 
     IEnumerator RandLamp()
     {
-        if (StopCor)
-            yield break;
+        if (StopCor) yield break;
 
         int RandInd = UnityEngine.Random.Range(0, 5);
         float RandTime = UnityEngine.Random.Range(4, 8) / 10f;

@@ -47,6 +47,7 @@ public class Lamps : Quests
         if (IsActive[0] && IsActive[1] && IsActive[2] && IsActive[3] && IsActive[4])
         {
             Quest.SetActive(false);
+            WeaphonScript.totalWeaphons += 1;
             Movement.CanShoot = true;
             Movement.CanMove = true;
             GetItem.SetActive(true);

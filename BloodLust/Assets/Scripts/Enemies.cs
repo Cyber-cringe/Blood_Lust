@@ -10,6 +10,8 @@ public class Enemies : MonoBehaviour
     [SerializeField] private Behaviour _entity1;
     [SerializeField] private Behaviour _entity2;
     [SerializeField] private GameObject Vrag;
+    [SerializeField] private float timm = 0.05f;
+    [SerializeField] private float destroyTime = 2f;
     public Transform picture;
     public Transform picture2;
     public Transform picture3;
@@ -41,9 +43,9 @@ public class Enemies : MonoBehaviour
         picture5.gameObject.SetActive(false);
         picture6.gameObject.SetActive(false);
     }
-   IEnumerator InvisibleSprite()
+    IEnumerator InvisibleSprite()
     {
-        for (float f = 1f; f >= -0.05f; f -= 0.005f)
+        for (float f = 1f; f >= -0.05f; f -= timm)
         {
             Color color = sprite.material.color;
             Color color2 = sprite2.material.color;
@@ -52,7 +54,7 @@ public class Enemies : MonoBehaviour
             sprite.material.color = color;
             sprite2.material.color = color2;
             yield return new WaitForSeconds(0.05f);
-            Destroy(Vrag,10);
+            Destroy(Vrag, destroyTime);
 
         }
     }
@@ -65,18 +67,18 @@ public class Enemies : MonoBehaviour
         picture5.position = transform.position;
         picture6.position = transform.position;
         a = Rotation.eulerAngles.z;
-
+        Debug.Log(a);
         if (((a > 0 && a < 45) || (a > 315 && a < 360)) && Enemies_HP > 0)
         {
             picture2.gameObject.SetActive(true);
         }
-        else 
+        else
         {
             picture2.gameObject.SetActive(false);
 
         }
 
-        if (Enemies_HP > 0 && a > 135 && a < 225)
+        if ((Enemies_HP > 0 && a > 135 && a < 225) || (Enemies_HP > 0 && a == 0))
         {
             picture3.gameObject.SetActive(true);
         }
@@ -96,10 +98,10 @@ public class Enemies : MonoBehaviour
             picture4.gameObject.SetActive(false);
 
         }
-        if (Enemies_HP > 0 && a > 225 && a < 315 )
+        if (Enemies_HP > 0 && a > 225 && a < 315)
         {
             picture.gameObject.SetActive(true);
-             
+
         }
         else
         {
@@ -116,7 +118,7 @@ public class Enemies : MonoBehaviour
             StartCoroutine(MainCharacter.instance.Knockback(KnockbackDuration, KnockbackPower, this.transform));
         }
 
-        if (other.gameObject.CompareTag("Bullet")) 
+        if (other.gameObject.CompareTag("Bullet"))
         {
             Destroy(other.gameObject);
             Enemies_HP -= 10;
@@ -129,19 +131,19 @@ public class Enemies : MonoBehaviour
                 transform.GetComponent<Collider2D>().enabled = false;
                 Vrag.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
                 MainCharacter.mana += 2;
-               // Destroy(BossFire.Enemy);
-                if (a > 0 && a < 180)
+                // Destroy(BossFire.Enemy);
+                if (a >= 0 && a < 180)
                 {
 
                     picture6.gameObject.SetActive(true);
-                    
+
                 }
                 else
                     if (a > 180 && a < 360)
                 {
 
                     picture5.gameObject.SetActive(true);
-                   
+
                 }
                 StartCoroutine("InvisibleSprite");
 
@@ -167,20 +169,20 @@ public class Enemies : MonoBehaviour
                 {
 
                     picture6.gameObject.SetActive(true);
-                    Destroy(picture5);
+
                 }
                 else
                     if (a > 180 && a < 360)
                 {
 
                     picture5.gameObject.SetActive(true);
-                    Destroy(picture6);
+
                 }
                 StartCoroutine("InvisibleSprite");
             }
         }
 
-       if (other.gameObject.CompareTag("ZASHITA"))
+        if (other.gameObject.CompareTag("ZASHITA"))
         {
             StartCoroutine(ringscript.instance.Knockback2(1f, 0.00001f, this.transform));
         }

@@ -36,6 +36,9 @@ public class MainCharacter : MonoBehaviour
     }
     void Start()
     {
+        MaxHP = 100;
+        mana = 4;
+        ActiveItem= "Default";
         Killed.SetActive(false);
         HP = MaxHP;
         Arrow.SetActive(false);
