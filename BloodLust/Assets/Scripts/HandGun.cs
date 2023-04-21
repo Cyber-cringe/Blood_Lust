@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class HandGun: MonoBehaviour
 {
-    public static int number_of_bullets = 8;
+    public static int number_of_bullets = 0;
     [SerializeField] Text BulletsInfo;
     [SerializeField] private AudioSource ShootGunReload;
 

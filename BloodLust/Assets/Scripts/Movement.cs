@@ -56,7 +56,6 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
-   
         if (ring != null)
         {
             ring.transform.position = transform.position;
@@ -211,6 +210,10 @@ public class Movement : MonoBehaviour
         if (other.gameObject.CompareTag("Pol"))
         {
             BossFire.bosstrigger = true;
+        }
+        if (other.gameObject.CompareTag("Pol2"))
+        {
+            BossFire.bosstrigger = false;
         }
 
     }
