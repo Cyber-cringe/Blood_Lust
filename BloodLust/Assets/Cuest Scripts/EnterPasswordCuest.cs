@@ -5,16 +5,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EnterPasswordCuest : MonoBehaviour
+public class EnterPasswordCuest : Quests
 {
     // Start is called before the first frame update
     string password = "";
 
-    [SerializeField] GameObject Quest;
-    [SerializeField] GameObject GetItem;
     [SerializeField] int NewPassword=9999;
-    [SerializeField] Button AplyButton;
-    [SerializeField] string LowerPanelMessage = "Найден прудмет: ключ";
     [SerializeField] Text[] PS = new Text[4];
     [SerializeField] Button[] buttons = new Button[4];
     
@@ -23,54 +19,22 @@ public class EnterPasswordCuest : MonoBehaviour
     {
         if(NewPassword>999 & NewPassword<10000)
         password= NewPassword.ToString();
-        buttons[0].onClick.AddListener(() => { Button1_Click(); });
-        buttons[1].onClick.AddListener(() => { Button2_Click(); });
-        buttons[2].onClick.AddListener(() => { Button3_Click(); });
-        buttons[3].onClick.AddListener(() => { Button4_Click(); });
+        buttons[0].onClick.AddListener(() => { Button_Click(0); });
+        buttons[1].onClick.AddListener(() => { Button_Click(1); });
+        buttons[2].onClick.AddListener(() => { Button_Click(2); });
+        buttons[3].onClick.AddListener(() => { Button_Click(3); });
         AplyButton.onClick.AddListener(() => { ApplyButton_Click(); });
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Button_Click(int i)
     {
-        
-    }
-
-    public void Button1_Click()
-    {
-        if (Convert.ToInt32(PS[0].text)<9)
-            PS[0].text=(Convert.ToInt32(PS[0].text) + 1).ToString();
+        if (Convert.ToInt32(PS[i].text)<9)
+            PS[i].text=(Convert.ToInt32(PS[i].text) + 1).ToString();
         else
-            PS[0].text = "0";
+            PS[i].text = "0";
     }
-    public void Button2_Click()
-    {
-        if (Convert.ToInt32(PS[1].text) < 9)
-            PS[1].text = (Convert.ToInt32(PS[1].text) + 1).ToString();
-        else
-            PS[1].text = "0";
-    }
-    public void Button3_Click()
-    {
-        if (Convert.ToInt32(PS[2].text) < 9)
-            PS[2].text = (Convert.ToInt32(PS[2].text) + 1).ToString();
-        else
-            PS[2].text = "0";
-    }
-    public void Button4_Click()
-    {
-        if (Convert.ToInt32(PS[3].text) < 9)
-            PS[3].text = (Convert.ToInt32(PS[3].text) + 1).ToString();
-        else
-            PS[3].text = "0";
-    }
-
-    IEnumerator ReturnColor()
-    {
-        yield return new WaitForSeconds(0.5f);
-            AplyButton.GetComponent<Image>().color = new Color(90/255f, 90/255f, 90/255f);
-    }
-    public void ApplyButton_Click()
+    
+    private void ApplyButton_Click()
     {
         if ((PS[0].text + PS[1].text + PS[2].text + PS[3].text) == password)
         {
@@ -78,16 +42,12 @@ public class EnterPasswordCuest : MonoBehaviour
             Movement.CanShoot = true;
             Movement.CanMove = true;
             GetItem.SetActive(true);
-            Interface.MessageText = LowerPanelMessage;
-            Interface.ShowPanel=true;
+            interf.ShowPanel(LowerPanelMessage);
         }
         else
         {
-            AplyButton.GetComponent<Image>().color = new Color(1, 0, 0);
-            StartCoroutine(ReturnColor());
-        }
-            
-            
+            StartCoroutine(ReturnColor(AplyButton));
+        }   
     }
 
 

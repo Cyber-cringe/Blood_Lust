@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: bcb65f71e9e33e341aeee82938dfb9e3
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Lombardina Initial One
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: a3291f0bcc490a24fa0b37f6a56aa877, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

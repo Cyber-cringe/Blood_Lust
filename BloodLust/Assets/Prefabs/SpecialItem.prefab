@@ -404,8 +404,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08801d5836895974aa078b29c7f418f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Sprite: {fileID: 1622553670330013795}
+  Is3D: 1
   InfoCanvas: {fileID: 6625671573929390203}
   TextCanvas: {fileID: 6625671574911761552}
+  ItemForUnlock: Default
+  ErrorText: "\u041D\u0435\u043B\u044C\u0437\u044F \u0432\u0437\u0430\u0438\u043C\u043E\u0434\u0435\u0439\u0441\u0442\u0432\u043E\u0432\u0430\u0442\u044C"
   text: "\u0432\u0437\u0430\u0438\u043C\u043E\u0434\u0435\u0439\u0441\u0442\u0432\u043E\u0432\u0430\u0442\u044C"
   NextStepOrQuest: {fileID: 0}
   ExitButton: {fileID: 0}
@@ -476,8 +480,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 4
+    m_Font: {fileID: 12800000, guid: e05419928d21feb419a19c1865c1c55d, type: 3}
+    m_FontSize: 6
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0

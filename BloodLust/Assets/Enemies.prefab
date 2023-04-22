@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 2157747681914565632}
   - component: {fileID: 2157747681914565633}
   - component: {fileID: 2157747681914565637}
-  - component: {fileID: 2157747681914565639}
   - component: {fileID: -4294689128765276694}
   - component: {fileID: -7747383502030016000}
   - component: {fileID: -8736705104771374778}
+  - component: {fileID: 6230392516832969501}
   m_Layer: 0
   m_Name: Enemies
   m_TagString: Enemies
@@ -113,22 +113,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &2157747681914565639
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2157747681914565634}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41972ca982508e747a7d0b4afc6412a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  speed: 3
-  rotateSpeed: 0.0025
-  Enemies_HP: 30
 --- !u!114 &-4294689128765276694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,7 +157,7 @@ MonoBehaviour:
   radius: 0.5
   height: 2
   canMove: 1
-  maxSpeed: 1
+  maxSpeed: 5
   gravity: {x: 0, y: 0, z: 0}
   groundMask:
     serializedVersion: 2
@@ -212,4 +196,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  target: {fileID: 8564367683498950557, guid: 14d0cc61faeed1348bee37045e2f57e4, type: 3}
+  target: {fileID: 9170012169236844941, guid: d50fba1895f07694291027c96c5911d2, type: 3}
+  f: 1
+  c: {x: 0, y: 0, z: 0}
+--- !u!114 &6230392516832969501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2157747681914565634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df6639791527311498fa23f6c1336ab7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 9170012169236844941, guid: d50fba1895f07694291027c96c5911d2, type: 3}
+  speed: 3
+  rotateSpeed: 0.0025
+  Enemies_HP: 30
+  KnockbackPower: 1000
+  KnockbackDuration: 1

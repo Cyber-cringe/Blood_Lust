@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 699871745426119155}
   - component: {fileID: 699871745426119154}
   - component: {fileID: 699871745426119158}
-  - component: {fileID: 699871745426119156}
   - component: {fileID: 5774071349021691929}
   - component: {fileID: 17009934503976947}
-  - component: {fileID: 699871745426119157}
+  - component: {fileID: 4006030923015151977}
+  - component: {fileID: 743058549161494658}
   m_Layer: 0
   m_Name: RangedEnemies
   m_TagString: Enemies
@@ -114,22 +114,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &699871745426119156
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 699871745426119153}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41972ca982508e747a7d0b4afc6412a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  speed: 3
-  rotateSpeed: 0.0025
-  Enemies_HP: 30
 --- !u!114 &5774071349021691929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -200,7 +184,7 @@ MonoBehaviour:
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
   constrainInsideGraph: 0
---- !u!114 &699871745426119157
+--- !u!114 &4006030923015151977
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -209,15 +193,35 @@ MonoBehaviour:
   m_GameObject: {fileID: 699871745426119153}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c45a57ef4533a24ab651021e59a70f4, type: 3}
+  m_Script: {fileID: 11500000, guid: df6639791527311498fa23f6c1336ab7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  speed: 3
+  rotateSpeed: 0.0025
+  Enemies_HP: 30
+  KnockbackPower: 70
+  KnockbackDuration: 1
+--- !u!114 &743058549161494658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 699871745426119153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 320a94224aae0cc47a98e14d83d10928, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
   target: {fileID: 0}
   firepoint: {fileID: 6529014256377801704}
-  bulletPrefab: {fileID: 1311139616970331527, guid: 4b865e159fe562a4fad728f9de32cbb9, type: 3}
-  fireTime: 1
-  rotateSpeed: 0.025
+  bulletPrefab: {fileID: 6346071743531545403, guid: f7a55576ada3a144ea2502ecdaca1901, type: 3}
+  RotationEnemies: {fileID: 6529014255642151270}
+  fireTime: 0
+  c: {x: 0, y: 0, z: 0}
+  rotateSpeed: 0.9
 --- !u!1 &6529014255642151269
 GameObject:
   m_ObjectHideFlags: 0
@@ -273,7 +277,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6529014256377801719}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.687, z: 0}
+  m_LocalPosition: {x: 0, y: 0.388, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6529014255642151270}

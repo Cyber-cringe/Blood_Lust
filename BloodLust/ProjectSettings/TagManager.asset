@@ -9,6 +9,13 @@ TagManager:
   - Wall
   - Health
   - Habar
+  - ZASHITA
+  - Habar2
+  - PYLIAVRAGA
+  - Knife
+  - Pumping
+  - Pol
+  - Pol2
   layers:
   - Default
   - TransparentFX
@@ -17,12 +24,12 @@ TagManager:
   - Water
   - UI
   - Environments
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - ZASHITA
+  - PULYA
+  - PULIAVRAGA
+  - NOBULLET
+  - VRAG
+  - player
   - 
   - 
   - 

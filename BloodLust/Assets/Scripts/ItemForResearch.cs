@@ -19,15 +19,13 @@ public class ItemForResearch :  ItemInteraction
     void Update()
     {
         PrintInteraction();
-
+        ChangePlayerPos();
         if (Input.GetKeyUp(KeyCode.R) & CanTrack)
         {
             NextStepOrQuest.SetActive(true);
             InfoCanvas.SetActive(false);
             Movement.CanShoot = false;
             Movement.CanMove = false;
-
-
         }
 
     }
