@@ -33,7 +33,7 @@ public class Locks : ItemForResearch
             InfoCanvas.SetActive(false);
             Movement.CanShoot = false;
             Movement.CanMove = false;
-            WeaphonScript.totalWeaphons = 3;
+            
         }
         else if (Input.GetKeyUp(KeyCode.R) && CanTrack && !LQ.CheckedPassedID(ID) && MainCharacter.ActiveItem != ItemForUnlock && ItemForUnlock != "Default")
         {

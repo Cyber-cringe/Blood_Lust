@@ -5,14 +5,12 @@ using UnityEngine.UI;
 
 public class HandGun: MonoBehaviour
 {
-    public static int number_of_bullets = 0;
     [SerializeField] Text BulletsInfo;
     [SerializeField] private AudioSource ShootGunReload;
 
     void Start()
     {
-        number_of_bullets = 0;
-        BulletsInfo.text = "x" + number_of_bullets.ToString();
+        BulletsInfo.text = "x" + Movement.ShootGunnumber_of_bullets.ToString();
     }
 
     // Update is called once per frame
@@ -24,6 +22,6 @@ public class HandGun: MonoBehaviour
             Movement.fireTimer2 = 2.5f;
             ShootGunReload.Play();
         }
-        BulletsInfo.text = "x" + number_of_bullets.ToString();
+        BulletsInfo.text = "x" + Movement.ShootGunnumber_of_bullets.ToString();
     }
 }

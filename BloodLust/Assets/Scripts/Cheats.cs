@@ -60,11 +60,11 @@ public class Cheats : MonoBehaviour
                 {
                     case "gun":
                         float.TryParse(Comands[2], out value);
-                        Pistol.number_of_bullets = (int)value;
+                        Movement.Pistolnumber_of_bullets = (int)value;
                         break;
                     case "shotgun":
                         float.TryParse(Comands[2], out value);
-                        HandGun.number_of_bullets = (int)value;
+                        Movement.ShootGunnumber_of_bullets = (int)value;
                         break;
                 }
             }

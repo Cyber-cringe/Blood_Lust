@@ -163,11 +163,11 @@ public class MainCharacter : MonoBehaviour
                 return ("Увеличен максимальный запас здоровья");
             case 2:
                 PistolCartridges = UnityEngine.Random.Range(5, 15);
-                Pistol.number_of_bullets += PistolCartridges;
+                Movement.Pistolnumber_of_bullets += PistolCartridges;
                 return ($"Найдены патроны для пистолета: {PistolCartridges}");
             case 3:
                 ShoutGunCartridges = UnityEngine.Random.Range(2, 8);
-                HandGun.number_of_bullets += ShoutGunCartridges;
+                Movement.ShootGunnumber_of_bullets += ShoutGunCartridges;
                 return ($"Найдены патроны для дробовика: {PistolCartridges}");
         }
         return "error";

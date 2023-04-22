@@ -10,6 +10,8 @@ public class Movement : MonoBehaviour
     [SerializeField] private AudioSource PistolShoot;
     [SerializeField] private AudioSource ShootGunShoot;
     [SerializeField] private AudioSource Moving;
+    public static int Pistolnumber_of_bullets;
+    public static int ShootGunnumber_of_bullets;
 
     private Animator anim;
     private Animator anim2;
@@ -49,7 +51,8 @@ public class Movement : MonoBehaviour
 
     void Start()
     {
-
+        ShootGunnumber_of_bullets=0;
+        Pistolnumber_of_bullets = 0;
         CanMove = true;
         CanShoot = true;
     }
@@ -65,34 +68,34 @@ public class Movement : MonoBehaviour
 
        
 
-        if (Input.GetMouseButtonDown(0) && CanShoot && fireTimer <= 0f && WeaphonScript.currentWeaphonIndex == 2 && Pistol.number_of_bullets != 0)
+        if (Input.GetMouseButtonDown(0) && CanShoot && fireTimer <= 0f && WeaphonScript.currentWeaphonIndex == 2 && Pistolnumber_of_bullets != 0)
         {
             PistolShoot.Play();
             anim2 = WeaphonScript.currentGun.transform.GetComponent<Animator>();
             PlayAnim2();
             Shoot1();
-            Pistol.number_of_bullets--;
+            Pistolnumber_of_bullets--;
             Pistolreload++;
             fireTimer = fireRate;
 
         }
-        else if (WeaphonScript.currentWeaphonIndex == 2 && Pistol.number_of_bullets != 0)
+        else if (WeaphonScript.currentWeaphonIndex == 2 && Pistolnumber_of_bullets != 0)
         {
             fireTimer -= Time.deltaTime;
         }
-        if (Input.GetMouseButtonDown(0) && CanShoot && fireTimer2 <= 0f && WeaphonScript.currentWeaphonIndex == 3 && HandGun.number_of_bullets != 0)
+        if (Input.GetMouseButtonDown(0) && CanShoot && fireTimer2 <= 0f && WeaphonScript.currentWeaphonIndex == 3 && ShootGunnumber_of_bullets != 0)
         {
             ShootGunShoot.Play();
             anim = WeaphonScript.currentGun.transform.GetComponent<Animator>();
             Shoot2();
             PlayAnim();
-            HandGun.number_of_bullets--;
+            ShootGunnumber_of_bullets--;
             HandGunreload++;
             fireTimer2 = fireRate2;
 
 
         }
-        else if (WeaphonScript.currentWeaphonIndex == 3 && HandGun.number_of_bullets != 0)
+        else if (WeaphonScript.currentWeaphonIndex == 3 && ShootGunnumber_of_bullets != 0)
         {
             fireTimer2 -= Time.deltaTime;
         }
@@ -182,16 +185,16 @@ public class Movement : MonoBehaviour
         {
             Habar.Play();
             Destroy(other.gameObject);
-            Pistol.number_of_bullets += 16;
-            Bullets1Info.text = "x" + Pistol.number_of_bullets.ToString();
+            Pistolnumber_of_bullets += 16;
+            Bullets1Info.text = "x" + Pistolnumber_of_bullets.ToString();
 
         }
         if (other.gameObject.CompareTag("Habar2"))
         {
             Habar.Play();
             Destroy(other.gameObject);
-            HandGun.number_of_bullets += 8;
-            Bullets2Info.text = "x" + HandGun.number_of_bullets.ToString();
+            ShootGunnumber_of_bullets += 8;
+            Bullets2Info.text = "x" + ShootGunnumber_of_bullets.ToString();
 
         }
         if (other.gameObject.CompareTag("Knife"))
